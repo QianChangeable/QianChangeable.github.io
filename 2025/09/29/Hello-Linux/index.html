@@ -27,7 +27,7 @@
 <meta property="og:description" content="基础的Linux命令">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-29T00:52:21.000Z">
-<meta property="article:modified_time" content="2025-09-29T01:05:46.693Z">
+<meta property="article:modified_time" content="2025-09-29T01:11:45.482Z">
 <meta property="article:author" content="QianChang_">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          1.5k 字
         
       </span>
     
@@ -308,7 +308,7 @@
 <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">ls -l` 显示的权限如：`-rwxr-xr--<br></code></pre></td></tr></table></figure>
 
 <ul>
-<li>**读（r）**read、**写（w）**write、**执行（x）**executable</li>
+<li>**读（r）**read、**写（w）**write、<strong>执行（x）</strong> executable</li>
 <li>第一位：<code>-</code>为文件，<code>d</code>为目录</li>
 <li>接下来三位：拥有者权限</li>
 <li>再三位：所属组权限</li>
@@ -317,7 +317,7 @@
 <p><code>chmod</code> <strong>change mode</strong> </p>
 <ul>
 <li>用于设置文件或目录的<strong>读（r）</strong>、<strong>写（w）</strong>、**执行（x）**权限。</li>
-<li>可以针对<strong>所有者（user, u）</strong>、<strong>所属组（group, g）</strong>、**其他人（others, o）**分别设置权限。</li>
+<li>可以针对<strong>所有者（user, u）</strong>、<strong>所属组（group, g）</strong>、<strong>其他人（others, o）</strong> 分别设置权限。</li>
 </ul>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">chmod</span> <span class="hljs-number">755</span> file.txt<br></code></pre></td></tr></table></figure>
 
@@ -362,24 +362,19 @@
 <p>:5 r 2.txt 将2.txt文件内容写入到该文件第5行后</p>
 <h1 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h1><p><code>scp</code> 是 Linux&#x2F;Unix 下用来<strong>安全地复制文件</strong>（Secure Copy）的命令，基于 SSH 协议。它可以在本地和远程主机之间或两台远程主机之间复制文件和目录。</p>
 <hr>
-<h2 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1. 基本语法"></a>1. 基本语法</h2><p>bash</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">scp <span class="hljs-selector-attr">[参数]</span> 源文件 目标路径<br></code></pre></td></tr></table></figure>
+<h2 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1. 基本语法"></a>1. 基本语法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">scp [参数] 源文件 目标路径<br></code></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="2-常用场景举例"><a href="#2-常用场景举例" class="headerlink" title="2. 常用场景举例"></a>2. 常用场景举例</h2><h3 id="从本地复制文件到远程主机"><a href="#从本地复制文件到远程主机" class="headerlink" title="从本地复制文件到远程主机"></a>从本地复制文件到远程主机</h3><p>bash</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir">scp localfile.txt user<span class="hljs-variable">@remotehost</span><span class="hljs-symbol">:/home/user/</span><br></code></pre></td></tr></table></figure>
+<h2 id="2-常用场景举例"><a href="#2-常用场景举例" class="headerlink" title="2. 常用场景举例"></a>2. 常用场景举例</h2><h3 id="从本地复制文件到远程主机"><a href="#从本地复制文件到远程主机" class="headerlink" title="从本地复制文件到远程主机"></a>从本地复制文件到远程主机</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">scp localfile.txt user@remotehost:/home/user/<br></code></pre></td></tr></table></figure>
 
 <p>把本地的 <code>localfile.txt</code> 拷贝到远程主机的 <code>/home/user/</code> 目录下。</p>
-<h3 id="从远程主机复制文件到本地"><a href="#从远程主机复制文件到本地" class="headerlink" title="从远程主机复制文件到本地"></a>从远程主机复制文件到本地</h3><p>bash</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir">scp user<span class="hljs-variable">@remotehost</span><span class="hljs-symbol">:/home/user/remotefile</span>.txt /local/path/<br></code></pre></td></tr></table></figure>
+<h3 id="从远程主机复制文件到本地"><a href="#从远程主机复制文件到本地" class="headerlink" title="从远程主机复制文件到本地"></a>从远程主机复制文件到本地</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">scp user@remotehost:/home/user/remotefile.txt /local/path/<br></code></pre></td></tr></table></figure>
 
 <p>把远程主机上的 <code>remotefile.txt</code> 拷贝到本地 <code>/local/path/</code> 目录。</p>
-<h3 id="复制整个目录（加-r-参数）"><a href="#复制整个目录（加-r-参数）" class="headerlink" title="复制整个目录（加 -r 参数）"></a>复制整个目录（加 <code>-r</code> 参数）</h3><p>bash</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir">scp -r /local/dir user<span class="hljs-variable">@remotehost</span><span class="hljs-symbol">:/home/user/</span><br></code></pre></td></tr></table></figure>
+<h3 id="复制整个目录（加-r-参数）"><a href="#复制整个目录（加-r-参数）" class="headerlink" title="复制整个目录（加 -r 参数）"></a>复制整个目录（加 <code>-r</code> 参数）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">scp -r /local/dir user@remotehost:/home/user/<br></code></pre></td></tr></table></figure>
 
 <p>递归复制本地目录 <code>/local/dir</code> 到远程主机。</p>
-<h3 id="指定端口号（加-P-参数，注意是大写）"><a href="#指定端口号（加-P-参数，注意是大写）" class="headerlink" title="指定端口号（加 -P 参数，注意是大写）"></a>指定端口号（加 <code>-P</code> 参数，注意是大写）</h3><p>bash</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir">scp -P <span class="hljs-number">2222</span> localfile.txt user<span class="hljs-variable">@remotehost</span><span class="hljs-symbol">:/home/user/</span><br></code></pre></td></tr></table></figure>
+<h3 id="指定端口号（加-P-参数，注意是大写）"><a href="#指定端口号（加-P-参数，注意是大写）" class="headerlink" title="指定端口号（加 -P 参数，注意是大写）"></a>指定端口号（加 <code>-P</code> 参数，注意是大写）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">scp -P 2222 localfile.txt user@remotehost:/home/user/<br></code></pre></td></tr></table></figure>
 
 <p>端口是 2222 时的写法。</p>
 <hr>
@@ -397,13 +392,11 @@
 <li>远程路径可以是绝对路径或相对路径</li>
 </ul>
 <hr>
-<h2 id="5-典型用法总结"><a href="#5-典型用法总结" class="headerlink" title="5. 典型用法总结"></a>5. 典型用法总结</h2><p>bash</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs elixir">scp file.txt user<span class="hljs-variable">@192</span>.<span class="hljs-number">168.1</span>.<span class="hljs-number">2</span><span class="hljs-symbol">:/home/user/</span>    <span class="hljs-comment"># 本地-&gt;远程</span><br>scp user<span class="hljs-variable">@192</span>.<span class="hljs-number">168.1</span>.<span class="hljs-number">2</span><span class="hljs-symbol">:/home/user/file</span>.txt ./  <span class="hljs-comment"># 远程-&gt;本地</span><br>scp -r dir/ user<span class="hljs-variable">@host</span><span class="hljs-symbol">:/path/</span>                 <span class="hljs-comment"># 复制目录</span><br>scp -P <span class="hljs-number">2222</span> file user<span class="hljs-variable">@host</span><span class="hljs-symbol">:/path/</span>            <span class="hljs-comment"># 指定端口</span><br></code></pre></td></tr></table></figure>
+<h2 id="5-典型用法总结"><a href="#5-典型用法总结" class="headerlink" title="5. 典型用法总结"></a>5. 典型用法总结</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">scp file.txt user@192.168.1.2:/home/user/    <span class="hljs-comment"># 本地-&gt;远程</span><br>scp user@192.168.1.2:/home/user/file.txt ./  <span class="hljs-comment"># 远程-&gt;本地</span><br>scp -r <span class="hljs-built_in">dir</span>/ user@host:/path/                 <span class="hljs-comment"># 复制目录</span><br>scp -P 2222 file user@host:/path/            <span class="hljs-comment"># 指定端口</span><br></code></pre></td></tr></table></figure>
 
 <hr>
-<p>如需更复杂用法（多文件、免密、自动化等），可以继续提问！</p>
 <h1 id="history"><a href="#history" class="headerlink" title="history"></a>history</h1><hr>
-<p><strong>要让 zsh 的 history 显示时间戳对</strong>全部用户生效**，可以将相关配置写到<strong>全局 zsh 配置文件</strong>，而不是只写到个人的 <code>~/.zshrc</code>。</p>
+<p>要让 zsh 的 history 显示时间戳对<strong>全部用户生效</strong>，可以将相关配置写到<strong>全局 zsh 配置文件</strong>，而不是只写到个人的 <code>~/.zshrc</code>。</p>
 <h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><ol>
 <li><p><strong>编辑全局 zsh 配置文件</strong></p>
 <p>常见位置有：</p>
