@@ -19,22 +19,22 @@
   <meta name="author" content="QianChang_">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Linux目录树，梳理一下。">
+    <meta name="description" content="Linux文件操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux目录树">
-<meta property="og:url" content="http://example.com/2025/10/28/Linux%E7%9B%AE%E5%BD%95%E6%A0%91/index.html">
+<meta property="og:title" content="Linux文件操作">
+<meta property="og:url" content="http://example.com/2025/10/28/Linux%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="浅唱の博客">
-<meta property="og:description" content="Linux目录树，梳理一下。">
+<meta property="og:description" content="Linux文件操作">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-28T07:12:41.000Z">
-<meta property="article:modified_time" content="2025-10-28T07:32:31.998Z">
+<meta property="article:published_time" content="2025-10-28T09:47:06.000Z">
+<meta property="article:modified_time" content="2025-10-28T09:50:41.711Z">
 <meta property="article:author" content="QianChang_">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Linux目录树 - 浅唱の博客</title>
+  <title>Linux文件操作 - 浅唱の博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Linux目录树"></span>
+            <span id="subtitle" data-typed-text="Linux文件操作"></span>
           
         </div>
 
@@ -211,7 +211,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-10-28 15:12" pubdate>
+        <time datetime="2025-10-28 17:47" pubdate>
           2025年10月28日 下午
         </time>
       </span>
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.2k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          13 分钟
+          11 分钟
         
       </span>
     
@@ -271,18 +271,134 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Linux目录树</h1>
+            <h1 id="seo-header">Linux文件操作</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Linux目录树，梳理一下。</p>
+                <p>Linux文件操作</p>
 <span id="more"></span>
 
-<h4 id="简版"><a href="#简版" class="headerlink" title="简版"></a>简版</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs txt">/  <br>├── bin      <br>├── boot     <br>├── dev      <br>├── etc      <br>├── home     <br>│   ├── 用户1<br>│   ├── 用户2<br>├── lib      <br>├── root     <br>├── sbin     <br>├── tmp      <br>├── usr      <br>│   ├── bin<br>│   ├── lib<br>│   ├── local<br>│   └── sbin<br>├── var      <br>│   ├── log<br>│   ├── mail<br>│   ├── spool<br>│   └── tmp<br></code></pre></td></tr></table></figure>
+<h1 id="Linux文件操作"><a href="#Linux文件操作" class="headerlink" title="Linux文件操作"></a>Linux文件操作</h1><h2 id="cat命令"><a href="#cat命令" class="headerlink" title="cat命令"></a>cat命令</h2><p><strong>cat</strong>命令用于显示文件的全部内容，但如果文件过大，只会显示最后一页。基本用法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> file1 <span class="hljs-comment"># 查看文件file1的内容</span><br><span class="hljs-built_in">cat</span> -n file2 <span class="hljs-comment"># 查看文件file2的内容，并对所有输出的行数进行编号</span><br><span class="hljs-built_in">cat</span> -b file3 <span class="hljs-comment"># 查看文件file3的内容，并对所有的非空行进行编号</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="详细"><a href="#详细" class="headerlink" title="详细"></a>详细</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><code class="hljs txt">/  <br>├── bin      <br>│   —— binaries：Essential command binaries  <br>│   —— 存放系统常用命令的二进制文件，如 ls、cp、mv 等  <br>│   —— 这些命令主要用于系统启动或单用户模式下的基本操作，通常为所有用户可用。  <br>│   —— /bin 下的命令是系统运行的基础，即使没有挂载其他文件系统也能正常工作。  <br>│   —— 在现代 Linux 中，部分发行版已将 /bin 合并到 /usr/bin，但传统结构仍然广泛使用。  <br>├── boot     <br>│   —— boot：Boot loader files  <br>│   —— 启动文件夹，存放启动 Linux 所需的文件，如内核 vmlinuz、引导加载器 grub  <br>│   —— 包含引导加载器（如 GRUB、LILO）及内核所需文件，是系统启动的关键目录。  <br>│   —— 一般只在系统启动时需要访问，正常使用时很少变动。  <br>├── dev      <br>│   —— devices：Device files  <br>│   —— 设备文件目录，如硬盘、终端等都以文件方式存在这里  <br>│   —— 通过设备文件，用户和程序可以像操作普通文件一样操作硬件设备。  <br>│   —— 该目录下文件都是由内核和 udev 动态生成，不占用实际磁盘空间。  <br>├── etc      <br>│   —— etcetera (configuration)：Configuration files  <br>│   —— 系统配置文件目录，大多数服务和程序的配置都在这里  <br>│   —— 包括网络、用户、服务等配置文件，如 passwd、hosts、fstab、ssh 配置等。  <br>│   —— 该目录的内容经常需要备份和维护，确保系统稳定运行。  <br>├── home     <br>│   —— home：User home directories  <br>│   —— 普通用户的主目录，每个用户一个子文件夹，如 /home/yourname  <br>│   —— 用户的个人文件、设置、下载等都保存在这里。  <br>│   —— 是用户日常使用和数据存储的主要目录。  <br>├── lib      <br>│   —— libraries：Essential shared libraries  <br>│   —— 系统运行所需的共享库文件和内核模块  <br>│   —— 包含为 /bin 和 /sbin 目录下程序提供支持的基本库文件，如 libc.so  <br>│   —— 还包括一些内核模块（通常在 /lib/modules 下），是系统正常运行的基础。  <br>├── media    <br>│   —— media：Removable media mount points  <br>│   —— 可移动设备挂载点，如 U 盘、光盘  <br>│   —— 系统自动识别并挂载外部存储设备时，挂载点会出现在该目录。  <br>│   —— 用户插入设备后，可在此目录下访问其内容。  <br>├── mnt      <br>│   —— mount：Temporary mount points  <br>│   —— 临时挂载文件系统用的挂载点  <br>│   —— 通常由管理员手动挂载临时文件系统或设备时使用。  <br>│   —— 该目录下内容一般是临时存在，不建议长期存放数据。  <br>├── opt      <br>│   —— optional：Optional application software  <br>│   —— 可选的软件包安装目录，第三方软件常安装在这里  <br>│   —— 一些大型商业软件或附加组件会选择安装在 /opt 下，便于统一管理和卸载。  <br>│   —— 目录结构一般为 /opt/软件名，方便区分和维护。  <br>├── proc     <br>│   —— process (process information)：Process and kernel information  <br>│   —— 虚拟文件系统，显示当前系统进程和内核信息  <br>│   —— /proc 下的文件和目录由内核动态生成，实时反映系统状态。  <br>│   —— 常用于排查系统性能、进程资源占用等问题。  <br>├── root     <br>│   —— root (root user&#x27;s home)：Root user’s home directory  <br>│   —— 系统管理员（root 用户）的主目录  <br>│   —— 仅 root 用户拥有完全权限，建议普通用户不要在此目录下操作。  <br>│   —— 存放 root 用户的个人文件和配置。  <br>├── run      <br>│   —— run (runtime data)：Application runtime data  <br>│   —— 存放系统运行时数据（自 Linux 2.6.29 起）  <br>│   —— 包括进程 PID 文件、服务运行时状态等临时数据，系统重启后会清空。  <br>│   —— 取代了早期的 /var/run，提供更一致的运行时数据管理。  <br>├── sbin     <br>│   —— system binaries：System administration binaries  <br>│   —— 系统管理员使用的二进制文件，如管理命令 ifconfig、reboot 等  <br>│   —— 一般只有 root 用户或具备管理员权限的用户才能执行这些命令。  <br>│   —— 包括系统维护、修复、网络管理等常用工具。  <br>├── srv      <br>│   —— service：Data for services provided  <br>│   —— 服务数据目录，存放服务产生的数据，如 web、ftp 等  <br>│   —— 用于保存由系统服务（如 HTTP、FTP）对外提供的数据。  <br>│   —— 比如 /srv/www 存放网页数据，/srv/ftp 存放 FTP 文件。  <br>├── sys      <br>│   —— system (kernel information)：System and kernel information  <br>│   —— 用于显示和交互内核信息的虚拟文件系统  <br>│   —— 与 /proc 类似，/sys 由内核动态生成，反映硬件设备和内核参数。  <br>│   —— 允许用户和应用程序通过文件系统接口与内核交互。  <br>├── tmp      <br>│   —— temporary：Temporary files  <br>│   —— 临时文件目录，任何用户都可访问，定期会被清空  <br>│   —— 用于存放临时数据，如程序临时缓存、下载解压文件等。  <br>│   —— 系统重启或定期维护时会自动清理该目录内容。  <br>├── usr      <br>│   —— user (user programs)：User programs and 数据  <br>│   —— 用户程序目录，包含许多应用程序和文件  <br>│   —— 这是系统中体积较大的目录之一，包含大多数用户级应用程序和资源，而不是系统引导或运行必需的内容。  <br>│   —— 一般来说，/usr 下的内容是只读的，只有在系统升级或安装新软件时才会变动。  <br>│   ├── bin      <br>│   │   —— binaries：User command binaries  <br>│   │   —— 普通用户可用的命令二进制文件，如 gcc、vim、python 等  <br>│   ├── lib      <br>│   │   —— libraries：User shared libraries  <br>│   │   —— 为 /usr/bin 及 /usr/sbin 中程序提供的共享库文件  <br>│   ├── local    <br>│   │   —— local：Local software installations  <br>│   │   —— 本地安装的软件，通常是用户自己编译或安装的第三方应用，不受系统包管理器控制  <br>│   └── sbin     <br>│       —— system binaries：User system binaries  <br>│       —— 用户级的系统管理命令，一般只有管理员才能使用  <br>├── var      <br>│   —— variable (variable files)：Variable files (logs, cache, etc)  <br>│   —— 经常变化的文件，如日志、缓存、邮件、锁文件等  <br>│   —— 包含系统运行过程中需要频繁写入的数据，如 /var/log、/var/spool、/var/tmp 等。  <br>│   —— 该目录下的内容随系统运行和服务变化而不断更新，需定期清理和备份。  <br>│   ├── log <br>│   │   —— log (log files)：System log files  <br>│   │   —— 系统日志文件目录，如 syslog、dmesg、auth.log 等  <br>│   ├── mail<br>│   │   —— mail (mail spool)：System mail storage <br>│   │   —— 系统邮件存储目录，保存用户或系统邮件  <br>│   ├── spool    <br>│   │   —— spool (service spool)：Service queue files   <br>│   │   —— 服务队列目录，如打印任务、邮件队列等  <br>│   └── tmp      <br>│       —— tmp (temporary files)：Temporary files for applications      <br>│       —— 程序运行时产生的临时文件目录，系统定期或重启时会清空  <br></code></pre></td></tr></table></figure>
+<p><strong>cat</strong>命令适用于快速查看文件的全部内容。</p>
+<h2 id="more命令"><a href="#more命令" class="headerlink" title="more命令"></a>more命令</h2><p><strong>more</strong>命令以分页的形式显示文件内容，按空白键（space）显示下一页内容，按Enter键显示下一行内容，按b键往回一页显示。基本用法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">more file1 <span class="hljs-comment"># 查看文件file1的内容</span><br>more -num file2 <span class="hljs-comment"># 查看文件file2的内容，一次显示num行</span><br>more +num file3 <span class="hljs-comment"># 查看文件file3的内容，从第num行开始显示</span><br></code></pre></td></tr></table></figure>
 
+<p><strong>more</strong>命令适用于逐页查看文件内容。</p>
+<h2 id="less命令"><a href="#less命令" class="headerlink" title="less命令"></a>less命令</h2><p><strong>less</strong>命令可以向前或向后随意查看文件内容，按空格键显示下一屏的内容，按回车键显示下一行的内容，按Q退出。基本用法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">less file1 <span class="hljs-comment"># 查看文件file1的内容</span><br>less -m file2 <span class="hljs-comment"># 查看文件file2的内容，并在屏幕底部显示已显示内容的百分比</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>less</strong>命令比<strong>more</strong>命令更灵活，适用于大文件的查看。</p>
+<h2 id="head命令"><a href="#head命令" class="headerlink" title="head命令"></a>head命令</h2><p><strong>head</strong>命令用于显示文件开头的内容，默认情况下只显示文件的头10行内容。基本用法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">head</span> -n 5 file1 <span class="hljs-comment"># 显示文件file1的前5行内容</span><br><span class="hljs-built_in">head</span> -c 20 file2 <span class="hljs-comment"># 显示文件file2的前20个字节内容</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>head</strong>命令适用于查看文件的开头部分。</p>
+<h2 id="tail命令"><a href="#tail命令" class="headerlink" title="tail命令"></a>tail命令</h2><p><strong>tail</strong>命令用于显示文件尾部的内容，默认情况下只显示文件的末尾10行。基本用法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">tail</span> -n 5 file1 <span class="hljs-comment"># 显示文件file1的末尾5行内容</span><br><span class="hljs-built_in">tail</span> -c 20 file2 <span class="hljs-comment"># 显示文件file2的末尾20个字节内容</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>tail</strong>命令适用于查看文件的尾部内容，适合实时观察日志文件。</p>
+<hr>
+<h1 id="vim命令"><a href="#vim命令" class="headerlink" title="vim命令"></a>vim命令</h1><p><strong>vim</strong>是Linux下功能强大的文本编辑器，支持多种编辑、查找、替换和多窗口等操作。基本用法和常见操作如下：</p>
+<h3 id="启动和退出vim"><a href="#启动和退出vim" class="headerlink" title="启动和退出vim"></a>启动和退出vim</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim file1           <span class="hljs-comment"># 打开或新建文件file1</span><br>vim -R file2        <span class="hljs-comment"># 以只读方式打开file2</span><br>vim +num file3      <span class="hljs-comment"># 打开file3并定位到第num行</span><br></code></pre></td></tr></table></figure>
+
+<p>退出vim的方法：</p>
+<ul>
+<li><code>:q</code>        # 退出（若有未保存内容则会提示）</li>
+<li><code>:q!</code>       # 强制退出不保存</li>
+<li><code>:wq</code>       # 保存并退出</li>
+<li><code>:x</code>        # 保存并退出，等同于:wq</li>
+<li><code>ZZ</code>        # 保存并退出（在命令模式下输入）</li>
+</ul>
+<p>只保存文件：</p>
+<ul>
+<li><code>:w</code>         # 保存文件</li>
+</ul>
+<h3 id="vim三种模式"><a href="#vim三种模式" class="headerlink" title="vim三种模式"></a>vim三种模式</h3><ul>
+<li><strong>普通模式</strong>（Normal）：默认进入，进行复制、粘贴、删除等操作。按<code>Esc</code>键进入普通模式。</li>
+<li><strong>插入模式</strong>（Insert）：输入文本。按<code>i</code>、<code>I</code>、<code>a</code>、<code>A</code>、<code>o</code>、<code>O</code>进入插入模式。</li>
+<li><strong>命令模式</strong>（Command）：用于执行保存、退出、查找、替换等命令。按<code>:</code>进入命令模式。</li>
+</ul>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="插入模式切换"><a href="#插入模式切换" class="headerlink" title="插入模式切换"></a>插入模式切换</h4><ul>
+<li><code>i</code>    # 在光标前插入</li>
+<li><code>I</code>    # 在行首插入</li>
+<li><code>a</code>    # 在光标后插入</li>
+<li><code>A</code>    # 在行尾插入</li>
+<li><code>o</code>    # 在当前行下方新建一行并插入</li>
+<li><code>O</code>    # 在当前行上方新建一行并插入</li>
+</ul>
+<h4 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h4><ul>
+<li><code>h</code>    # 左移</li>
+<li><code>j</code>    # 下移</li>
+<li><code>k</code>    # 上移</li>
+<li><code>l</code>    # 右移</li>
+<li><code>w</code>    # 移动到下一个单词首</li>
+<li><code>b</code>    # 移动到上一个单词首</li>
+<li><code>0</code>    # 移动到行首</li>
+<li><code>$</code>    # 移动到行尾</li>
+<li><code>gg</code>   # 移动到文件首</li>
+<li><code>G</code>    # 移动到文件尾</li>
+<li><code>numG</code> # 移动到第num行</li>
+</ul>
+<h4 id="复制、粘贴与删除"><a href="#复制、粘贴与删除" class="headerlink" title="复制、粘贴与删除"></a>复制、粘贴与删除</h4><ul>
+<li><code>yy</code>      # 复制当前行</li>
+<li><code>nyy</code>     # 复制接下来的n行</li>
+<li><code>p</code>       # 在光标后粘贴</li>
+<li><code>P</code>       # 在光标前粘贴</li>
+<li><code>dd</code>      # 删除当前行</li>
+<li><code>ndd</code>     # 删除接下来的n行</li>
+<li><code>x</code>       # 删除光标处字符</li>
+<li><code>d0</code>      # 删除至行首</li>
+<li><code>d$</code>      # 删除至行尾</li>
+<li><code>:%d</code>      #删除文件中的所有行。</li>
+<li><code>ggdG</code>      #从文件头移动到末尾并删除所有内容。</li>
+</ul>
+<h4 id="撤销与重做"><a href="#撤销与重做" class="headerlink" title="撤销与重做"></a>撤销与重做</h4><ul>
+<li><code>u</code>       # 撤销</li>
+<li><code>Ctrl+r</code>  # 重做</li>
+</ul>
+<h4 id="查找与替换"><a href="#查找与替换" class="headerlink" title="查找与替换"></a>查找与替换</h4><ul>
+<li><code>/str</code>        # 向下查找字符串str</li>
+<li><code>?str</code>        # 向上查找字符串str</li>
+<li><code>n</code>           # 重复上一次查找（同方向）</li>
+<li><code>N</code>           # 重复上一次查找（反方向）</li>
+</ul>
+<p>替换命令：</p>
+<ul>
+<li><code>:s/old/new/</code>         # 替换当前行第一个old为new</li>
+<li><code>:s/old/new/g</code>        # 替换当前行所有old为new</li>
+<li><code>:%s/old/new/g</code>       # 替换整个文件所有old为new</li>
+<li><code>:%s/old/new/gc</code>      # 替换整个文件所有old为new，每次替换前确认</li>
+</ul>
+<h4 id="多窗口与多文件"><a href="#多窗口与多文件" class="headerlink" title="多窗口与多文件"></a>多窗口与多文件</h4><ul>
+<li><code>:split file2</code>    # 水平分割窗口并打开file2</li>
+<li><code>:vsplit file3</code>   # 垂直分割窗口并打开file3</li>
+<li><code>Ctrl+w w</code>        # 切换窗口</li>
+<li><code>:tabnew file4</code>   # 新建标签页并打开file4</li>
+<li><code>:tabn</code>           # 切换到下一个标签页</li>
+<li><code>:tabp</code>           # 切换到上一个标签页</li>
+</ul>
+<h4 id="行号显示"><a href="#行号显示" class="headerlink" title="行号显示"></a>行号显示</h4><ul>
+<li><p><code>:set number</code>     # 显示行号</p>
+</li>
+<li><p><code>:set nonumber</code>   # 关闭行号</p>
+<p>如果要对所有用户实行永久性配置，打开终端，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> vim /etc/vim/vimrc<br></code></pre></td></tr></table></figure>
+
+<p>在文末加上一行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">set</span> number<br></code></pre></td></tr></table></figure>
+
+<p>即可永久配置。</p>
+</li>
+</ul>
+<h4 id="其他实用命令"><a href="#其他实用命令" class="headerlink" title="其他实用命令"></a>其他实用命令</h4><ul>
+<li><code>:e file5</code>        # 打开file5</li>
+<li><code>:r file6</code>        # 将file6内容插入到当前文件</li>
+<li><code>:! command</code>      # 执行shell命令（如<code>:!ls</code>）</li>
+</ul>
+<hr>
+<p><strong>vim</strong>操作非常丰富，上述为常用基础命令，熟练掌握可大幅提升文本编辑效率。</p>
 
                 
               </div>
@@ -328,8 +444,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Linux目录树</div>
-      <div>http://example.com/2025/10/28/Linux目录树/</div>
+      <div>Linux文件操作</div>
+      <div>http://example.com/2025/10/28/Linux文件操作/</div>
     </div>
     <div class="license-meta">
       
@@ -373,18 +489,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/10/28/Linux%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" title="Linux文件操作">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Linux文件操作</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/10/09/%E5%AF%86%E7%A0%81%E5%BB%BA%E8%AE%AE/" title="凯撒密码现实应用">
-                        <span class="hidden-mobile">凯撒密码现实应用</span>
+                      <a href="/2025/10/28/Linux%E7%9B%AE%E5%BD%95%E6%A0%91/" title="Linux目录树">
+                        <span class="hidden-mobile">Linux目录树</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
