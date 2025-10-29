@@ -27,7 +27,7 @@
 <meta property="og:description" content="Linux文件操作">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-28T09:47:06.000Z">
-<meta property="article:modified_time" content="2025-10-28T11:44:59.604Z">
+<meta property="article:modified_time" content="2025-10-29T00:46:01.472Z">
 <meta property="article:author" content="QianChang_">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          1.6k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          11 分钟
+          14 分钟
         
       </span>
     
@@ -279,28 +279,48 @@
                 <p>Linux文件操作</p>
 <span id="more"></span>
 
-<h1 id="Linux文件操作"><a href="#Linux文件操作" class="headerlink" title="Linux文件操作"></a>Linux文件操作</h1><h2 id="cat命令"><a href="#cat命令" class="headerlink" title="cat命令"></a>cat命令</h2><p><strong>cat</strong>命令用于显示文件的全部内容，但如果文件过大，只会显示最后一页。基本用法如下：</p>
+<h1 id="Linux文件操作"><a href="#Linux文件操作" class="headerlink" title="Linux文件操作"></a>Linux文件操作</h1><h2 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h2><h3 id="cat命令"><a href="#cat命令" class="headerlink" title="cat命令"></a>cat命令</h3><p><strong>cat</strong>命令用于显示文件的全部内容，但如果文件过大，只会显示最后一页。基本用法如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> file1 <span class="hljs-comment"># 查看文件file1的内容</span><br><span class="hljs-built_in">cat</span> -n file2 <span class="hljs-comment"># 查看文件file2的内容，并对所有输出的行数进行编号</span><br><span class="hljs-built_in">cat</span> -b file3 <span class="hljs-comment"># 查看文件file3的内容，并对所有的非空行进行编号</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>cat</strong>命令适用于快速查看文件的全部内容。</p>
-<h2 id="more命令"><a href="#more命令" class="headerlink" title="more命令"></a>more命令</h2><p><strong>more</strong>命令以分页的形式显示文件内容，按空白键（space）显示下一页内容，按Enter键显示下一行内容，按b键往回一页显示。基本用法如下：</p>
+<h3 id="more命令"><a href="#more命令" class="headerlink" title="more命令"></a>more命令</h3><p><strong>more</strong>命令以分页的形式显示文件内容，按空白键（space）显示下一页内容，按Enter键显示下一行内容，按b键往回一页显示。基本用法如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">more file1 <span class="hljs-comment"># 查看文件file1的内容</span><br>more -num file2 <span class="hljs-comment"># 查看文件file2的内容，一次显示num行</span><br>more +num file3 <span class="hljs-comment"># 查看文件file3的内容，从第num行开始显示</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>more</strong>命令适用于逐页查看文件内容。</p>
-<h2 id="less命令"><a href="#less命令" class="headerlink" title="less命令"></a>less命令</h2><p><strong>less</strong>命令可以向前或向后随意查看文件内容，按空格键显示下一屏的内容，按回车键显示下一行的内容，按Q退出。基本用法如下：</p>
+<h3 id="less命令"><a href="#less命令" class="headerlink" title="less命令"></a>less命令</h3><p><strong>less</strong>命令可以向前或向后随意查看文件内容，按空格键显示下一屏的内容，按回车键显示下一行的内容，按Q退出。基本用法如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">less file1 <span class="hljs-comment"># 查看文件file1的内容</span><br>less -m file2 <span class="hljs-comment"># 查看文件file2的内容，并在屏幕底部显示已显示内容的百分比</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>less</strong>命令比<strong>more</strong>命令更灵活，适用于大文件的查看。</p>
-<h2 id="head命令"><a href="#head命令" class="headerlink" title="head命令"></a>head命令</h2><p><strong>head</strong>命令用于显示文件开头的内容，默认情况下只显示文件的头10行内容。基本用法如下：</p>
+<h3 id="head命令"><a href="#head命令" class="headerlink" title="head命令"></a>head命令</h3><p><strong>head</strong>命令用于显示文件开头的内容，默认情况下只显示文件的头10行内容。基本用法如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">head</span> -n 5 file1 <span class="hljs-comment"># 显示文件file1的前5行内容</span><br><span class="hljs-built_in">head</span> -c 20 file2 <span class="hljs-comment"># 显示文件file2的前20个字节内容</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>head</strong>命令适用于查看文件的开头部分。</p>
-<h2 id="tail命令"><a href="#tail命令" class="headerlink" title="tail命令"></a>tail命令</h2><p><strong>tail</strong>命令用于显示文件尾部的内容，默认情况下只显示文件的末尾10行。基本用法如下：</p>
+<h3 id="tail命令"><a href="#tail命令" class="headerlink" title="tail命令"></a>tail命令</h3><p><strong>tail</strong>命令用于显示文件尾部的内容，默认情况下只显示文件的末尾10行。基本用法如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">tail</span> -n 5 file1 <span class="hljs-comment"># 显示文件file1的末尾5行内容</span><br><span class="hljs-built_in">tail</span> -c 20 file2 <span class="hljs-comment"># 显示文件file2的末尾20个字节内容</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>tail</strong>命令适用于查看文件的尾部内容，适合实时观察日志文件。</p>
-<hr>
-<h1 id="vim命令"><a href="#vim命令" class="headerlink" title="vim命令"></a>vim命令</h1><p><strong>vim</strong>是Linux下功能强大的文本编辑器，支持多种编辑、查找、替换和多窗口等操作。基本用法和常见操作如下：</p>
+<h2 id="复制、移动、重命名、删除文件"><a href="#复制、移动、重命名、删除文件" class="headerlink" title="复制、移动、重命名、删除文件"></a>复制、移动、重命名、删除文件</h2><hr>
+<h3 id="cp命令（复制文件）"><a href="#cp命令（复制文件）" class="headerlink" title="cp命令（复制文件）"></a>cp命令（复制文件）</h3><p><strong>cp</strong>（copy file）命令用于将文件复制到指定路径，基本用法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cp</span> file newpath <span class="hljs-comment"># 将文件复制到指定路径</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="mv命令（移动-重命名文件）"><a href="#mv命令（移动-重命名文件）" class="headerlink" title="mv命令（移动&#x2F;重命名文件）"></a>mv命令（移动&#x2F;重命名文件）</h3><p><strong>mv</strong>（move）命令用于移动&#x2F;重命名文件，基本用法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mv</span> file newpath <span class="hljs-comment"># 将文件移动到指定路径</span><br><span class="hljs-built_in">mv</span> file newfile <span class="hljs-comment"># 将file重命名为newfile</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="rm命令（删除文件）"><a href="#rm命令（删除文件）" class="headerlink" title="rm命令（删除文件）"></a>rm命令（删除文件）</h3><p><strong>rm</strong>（remove）命令是Linux中用于删除文件或目录的常用命令。由于该命令会永久删除文件，因此<strong>在使用时需要格外小心。</strong></p>
+<p><strong>rm</strong>命令的基本语法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">rm</span> [options] name<br></code></pre></td></tr></table></figure>
+
+<p>其中，<em>name</em>可以是一个或多个文件或目录的名称。<em>options</em>是命令选项，用于修改命令的行为。</p>
+<p>常用选项</p>
+<ul>
+<li><em><strong>-i</strong></em>：在删除文件或目录之前，系统会提示用户确认是否删除。</li>
+<li><em>-<strong>f</strong></em>：强制删除文件或目录，即使文件属性为只读，也不会提示用户确认。</li>
+<li><em><strong>-r</strong></em>：递归删除，用于删除目录及其包含的所有内容，包括所有子目录和文件。</li>
+</ul>
+<p>基本用法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">rm</span> test.txt <span class="hljs-comment"># 删除单个文件</span><br><span class="hljs-built_in">rm</span> -r homework <span class="hljs-comment"># 删除指定目录及其内容</span><br><span class="hljs-built_in">rm</span> -r * <span class="hljs-comment"># 删除当前目录下的所有文件和目录</span><br><span class="hljs-built_in">rm</span> -rf * <span class="hljs-comment"># 强制删除当前目录下的所有文件和目录，不会有任何提示</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="vim命令"><a href="#vim命令" class="headerlink" title="vim命令"></a>vim命令</h2><p><strong>vim</strong>是Linux下功能强大的文本编辑器，支持多种编辑、查找、替换和多窗口等操作。基本用法和常见操作如下：</p>
 <h3 id="启动和退出vim"><a href="#启动和退出vim" class="headerlink" title="启动和退出vim"></a>启动和退出vim</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim file1           <span class="hljs-comment"># 打开或新建文件file1</span><br>vim -R file2        <span class="hljs-comment"># 以只读方式打开file2</span><br>vim +num file3      <span class="hljs-comment"># 打开file3并定位到第num行</span><br></code></pre></td></tr></table></figure>
 
 <p>退出vim的方法：</p>
