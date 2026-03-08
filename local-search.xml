@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>VSCode Windows/Linux连接</title>
+    <link href="/2026/03/08/VSCode-Windows-Linux%E8%BF%9E%E6%8E%A5/"/>
+    <url>/2026/03/08/VSCode-Windows-Linux%E8%BF%9E%E6%8E%A5/</url>
+    
+    <content type="html"><![CDATA[<p>解决VSCode Windows&#x2F;Linux ssh连接断网问题</p><span id="more"></span><p>非常神必的bug</p><p>bug描述：ubuntu24.04 vmware dhcp自动分配ip地址，可以正常联网，B站可以刷视频，一旦用VSCode的Remote SSH连接之后就会断网</p><p>解决方案：切换成Remote Tunnel（远程隧道）即可。</p><p>解决时长：5h</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello,Git!</title>
     <link href="/2026/03/08/Hello-Git/"/>
     <url>/2026/03/08/Hello-Git/</url>
