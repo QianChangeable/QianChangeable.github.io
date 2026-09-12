@@ -19,22 +19,21 @@
   <meta name="author" content="QianChang_">
   <meta name="keywords" content="">
   
-    <meta name="description" content="生成skill的skill，你搁这搁这呢？">
+    <meta name="description" content="VSCode Vim初体验，以及一些技巧">
 <meta property="og:type" content="article">
-<meta property="og:title" content="生成skill的skill">
-<meta property="og:url" content="https://qianchangeable.github.io/2026/09/12/%E7%94%9F%E6%88%90skill%E7%9A%84skill/index.html">
+<meta property="og:title" content="VSCode-Vim使用技巧">
+<meta property="og:url" content="https://qianchangeable.github.io/2026/09/12/VSCode-Vim%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/index.html">
 <meta property="og:site_name" content="浅唱の博客">
-<meta property="og:description" content="生成skill的skill，你搁这搁这呢？">
+<meta property="og:description" content="VSCode Vim初体验，以及一些技巧">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-09-11T17:35:21.000Z">
-<meta property="article:modified_time" content="2026-09-12T16:07:28.013Z">
+<meta property="article:published_time" content="2026-09-12T13:18:54.000Z">
+<meta property="article:modified_time" content="2026-09-12T16:06:50.109Z">
 <meta property="article:author" content="QianChang_">
-<meta property="article:tag" content="Skill">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>生成skill的skill - 浅唱の博客</title>
+  <title>VSCode-Vim使用技巧 - 浅唱の博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="生成skill的skill"></span>
+            <span id="subtitle" data-typed-text="VSCode-Vim使用技巧"></span>
           
         </div>
 
@@ -211,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-09-12 01:35" pubdate>
-          2026年9月12日 凌晨
+        <time datetime="2026-09-12 21:18" pubdate>
+          2026年9月12日 晚上
         </time>
       </span>
     
@@ -223,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          583 字
         
       </span>
     
@@ -234,7 +233,7 @@
         
         
         
-          12 分钟
+          5 分钟
         
       </span>
     
@@ -271,124 +270,108 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">生成skill的skill</h1>
+            <h1 id="seo-header">VSCode-Vim使用技巧</h1>
             
             
               <div class="markdown-body">
                 
-                <p>生成skill的skill，你搁这搁这呢？</p>
+                <p>VSCode Vim初体验，以及一些技巧</p>
 <span id="more"></span>
 
-<h1 id="1-问题定义"><a href="#1-问题定义" class="headerlink" title="1. 问题定义"></a>1. 问题定义</h1><p>本次目标不是「让 Agent 多会一项业务能力」，而是先装一套 <strong>约束如何编写 skill 的 skill</strong>，再用它产出本仓库的第一份业务 skill。</p>
-<p>输入是两个公开仓库：</p>
+<p>记法：外接键盘按 Win，Mac 上这一颗键就是 Command。正文写成 <code>Win+Shift+E</code>（即 Command+Shift+E），方便对照。</p>
+<h1 id="资源管理器"><a href="#资源管理器" class="headerlink" title="资源管理器"></a>资源管理器</h1><p>本篇默认已经装了 <strong>VSCodeVim</strong>。</p>
+<h2 id="文件树-↔-编辑器"><a href="#文件树-↔-编辑器" class="headerlink" title="文件树 ↔ 编辑器"></a>文件树 ↔ 编辑器</h2><p><code>Win+Shift+E</code>（即 Command+Shift+E）在这两个状态之间切换：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/obra/superpowers">obra&#x2F;superpowers</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/anthropics/skills">anthropics&#x2F;skills</a></li>
+<li>焦点在当前文件里 → 切到左侧文件树</li>
+<li>焦点在左侧（文件树，或下面那块空区域）→ 切回当前已经打开的那份文件</li>
 </ul>
-<p>二者都遵守 <a target="_blank" rel="noopener" href="https://agentskills.io/">Agent Skills</a> 格式（目录 + <code>SKILL.md</code>），职责不同：</p>
+<p>对应命令是 <code>workbench.view.explorer</code>（Show Explorer &#x2F; Toggle Focus）。不必限定 Normal 模式。</p>
+<p>只显示&#x2F;隐藏整条侧栏是 <code>Win+B</code>（即 Command+B），和切焦点不是同一件事。</p>
+<p>也可以用 <code>Win+1</code>（即 Command+1）把焦点直接送进第一组编辑器。分屏时第二组是 <code>Win+2</code>（即 Command+2）。<code>Esc</code> 一般只取消选中，不会切回来。</p>
+<h2 id="文件树里移动和打开"><a href="#文件树里移动和打开" class="headerlink" title="文件树里移动和打开"></a>文件树里移动和打开</h2><p>焦点在文件树、且没在重命名输入框时（VSCodeVim 默认绑定）：</p>
 <table>
 <thead>
 <tr>
-<th>仓库</th>
-<th>层级</th>
-<th>实际作用</th>
+<th>键</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>anthropics/skills</code></td>
-<td>规范 + 示例 + 评测工厂</td>
-<td><code>skill-creator</code> 负责脚手架、校验、eval；其余多为成品能力（pdf &#x2F; pptx &#x2F; mcp-builder 等）</td>
+<td><code>j</code> &#x2F; <code>k</code></td>
+<td>下一个 &#x2F; 上一个</td>
 </tr>
 <tr>
-<td><code>obra/superpowers</code></td>
-<td>编码方法论</td>
-<td>brainstorm → plan → TDD → 子 agent 执行 → review；其中 <code>writing-skills</code> 约束「如何写 skill」</td>
+<td><code>l</code></td>
+<td>打开文件；文件夹则展开（焦点进编辑器）</td>
 </tr>
 <tr>
-<td>Cursor 内置 <code>create-skill</code></td>
-<td>编辑器适配</td>
-<td>规定 Cursor 落盘路径与 frontmatter</td>
+<td><code>Space</code></td>
+<td>打开当前文件；焦点常留在文件树，可以接着 <code>j</code> &#x2F; <code>k</code></td>
+</tr>
+<tr>
+<td><code>h</code></td>
+<td>折叠当前文件夹</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>展开&#x2F;折叠文件夹</td>
 </tr>
 </tbody></table>
-<p>需求在交互中被收敛为三句话：</p>
-<ol>
-<li>不要整仓 Superpowers，不要评测工具链。</li>
-<li>不要把 meta-skill 理解成「用它去生成周报 Markdown」。meta-skill 产出的是说明书；干活的是说明书约束下的业务 skill。</li>
-<li>要的是 <strong>写作约束</strong>（何时写、何时不写、description 禁止概括流程、防 Agent 走捷径），不是 <code>init_skill.py</code> &#x2F; eval-viewer。</li>
-</ol>
-<p>选型结论：部署 Superpowers 的 <code>writing-skills</code> 单份，不装插件全家桶。Cursor 路径规则仍沿用 <code>create-skill</code>。</p>
-<h1 id="2-部署-writing-skills（全局）"><a href="#2-部署-writing-skills（全局）" class="headerlink" title="2. 部署 writing-skills（全局）"></a>2. 部署 writing-skills（全局）</h1><h2 id="2-1-范围"><a href="#2-1-范围" class="headerlink" title="2.1 范围"></a>2.1 范围</h2><ul>
-<li>目标路径：<code>~/.cursor/skills/writing-skills/</code>（个人全局，跨项目）</li>
-<li>禁止写入：<code>~/.cursor/skills-cursor/</code>（编辑器内置）</li>
-<li>不安装：Superpowers 其余 skill、Claude Code marketplace、Python eval 栈</li>
-</ul>
-<h2 id="2-2-交互步骤"><a href="#2-2-交互步骤" class="headerlink" title="2.2 交互步骤"></a>2.2 交互步骤</h2><ol>
-<li><strong>对齐候选。</strong> 对比 <code>create-skill</code>、<code>skill-creator</code>、<code>writing-skills</code> 三份 <code>SKILL.md</code>。<code>skill-creator</code> 重心在评测闭环；<code>writing-skills</code> 重心在 description SDO、When NOT、RED-GREEN-REFACTOR。</li>
-<li><strong>校正过满结论。</strong> 另一路建议把 <code>writing-skills</code> 说成「唯一、零依赖」。核对原文后否决：它声明依赖 <code>superpowers:test-driven-development</code>，并要求子 agent 压力测试。约束方向正确，安装范围仍应裁剪。</li>
-<li><strong>确认安装。</strong> 用户明确「不够狠，配置到 Cursor 全局 skill」。</li>
-</ol>
-<h2 id="2-3-落盘与故障回退"><a href="#2-3-落盘与故障回退" class="headerlink" title="2.3 落盘与故障回退"></a>2.3 落盘与故障回退</h2><p>按依赖从宽到窄尝试三次：</p>
-<ol>
-<li><code>git sparse-checkout</code> 只拉 <code>skills/writing-skills</code>。失败：GitHub HTTP2 framing &#x2F; checkout 中断（exit 128）。</li>
-<li><code>curl</code> 直拉 raw 文件。失败：全局目录写入被策略拦截。</li>
-<li><code>WebFetch</code> 取原文 → 用户批准后写入 <code>~/.cursor/skills/</code>。成功。</li>
-</ol>
-<p>配套文件一并落下：<code>anthropic-best-practices.md</code>、<code>testing-skills-with-subagents.md</code>、<code>persuasion-principles.md</code>、<code>examples/</code>。<code>render-graphs.js</code> 未拷（仅渲染流程图，与写作约束无关）。</p>
-<h2 id="2-4-Cursor-适配补丁"><a href="#2-4-Cursor-适配补丁" class="headerlink" title="2.4 Cursor 适配补丁"></a>2.4 Cursor 适配补丁</h2><p>原 skill 写的是 <code>~/.claude/skills/</code>，并 <code>MUST</code> 加载 Superpowers TDD。本机没有那套运行时，因此在 <code>SKILL.md</code> 顶部增加覆盖规则：</p>
-<ul>
-<li>个人目录 <code>~/.cursor/skills/</code>，项目目录 <code>&lt;repo&gt;/.cursor/skills/</code></li>
-<li>找不到 <code>test-driven-development</code> 时不拒绝、不空转；RED-GREEN-REFACTOR 按本文档与 <code>testing-skills-with-subagents.md</code> 执行，子 agent 用 Cursor Task</li>
-<li>与 <code>create-skill</code> 同时命中时：<strong>写作约束跟 <code>writing-skills</code>，路径跟 Cursor</strong></li>
-<li>部署完成条件：文件出现在上述目录，不要求向 Superpowers 提 PR</li>
-</ul>
-<p>新会话才能稳定发现刚装的全局 skill，因此安装结束后要求换一轮对话再生成业务 skill。</p>
-<h1 id="3-用-writing-skills-生成第一个业务-skill"><a href="#3-用-writing-skills-生成第一个业务-skill" class="headerlink" title="3. 用 writing-skills 生成第一个业务 skill"></a>3. 用 writing-skills 生成第一个业务 skill</h1><p>第一份业务 skill 是本博客的 <code>creating-hexo-posts</code>，路径：<code>.cursor/skills/creating-hexo-posts/SKILL.md</code>（项目级，只约束这个仓库）。</p>
-<h2 id="3-1-Discovery"><a href="#3-1-Discovery" class="headerlink" title="3.1 Discovery"></a>3.1 Discovery</h2><p>按 <code>writing-skills</code>：先问用途、存放位置、触发词、成功标准，再写文件。确认结果：</p>
-<ul>
-<li>用途：新建 <code>source/_posts</code> 骨架，以及预览后发布到 GitHub Pages</li>
-<li>位置：项目 skill，不进全局</li>
-<li>触发：写博客 &#x2F; hexo new &#x2F; 发布 &#x2F; hexo d &#x2F; 预览</li>
-<li>正文由用户写；Agent 不代写文章</li>
-</ul>
-<h2 id="3-2-RED：无-skill-时的基线"><a href="#3-2-RED：无-skill-时的基线" class="headerlink" title="3.2 RED：无 skill 时的基线"></a>3.2 RED：无 skill 时的基线</h2><p>用子 agent 加压（赶时间、标题已给、要求直接生成 &#x2F; 直接 <code>hexo d</code>）。无约束时的典型偏离：</p>
-<ul>
-<li>跳过清单，自拟或直接落盘</li>
-<li><code>&lt;!--more--&gt;</code> 后写满正文</li>
-<li>创建当轮顺便预览或部署</li>
-<li>「别预览了」则跳过 <code>hexo s</code> 直接 <code>hexo d</code></li>
-<li>部署与源码 <code>commit/push</code> 绑死或漏做</li>
-</ul>
-<p>这些借口写进 skill 的 Rationalizations &#x2F; Red flags，而不是凭空列规则。</p>
-<h2 id="3-3-GREEN：最小可执行文档"><a href="#3-3-GREEN：最小可执行文档" class="headerlink" title="3.3 GREEN：最小可执行文档"></a>3.3 GREEN：最小可执行文档</h2><p><code>creating-hexo-posts</code> 拆成两条互斥路径，禁止同一轮混用：</p>
-<p><strong>Create path</strong></p>
-<ol>
-<li>第一轮只发完整清单（title &#x2F; date &#x2F; categories &#x2F; tags &#x2F; sticky &#x2F; 摘要），即使部分字段已给出。</li>
-<li>无 <code>title</code> 不生成文件；<code>date</code> 可默认当前时间。</li>
-<li><code>&lt;!--more--&gt;</code> 后必须为空。</li>
-<li>不跑 <code>hexo new</code>。摘要缺省写入固定占位句 <code>可花谢花开，终有梦醒时分.</code>。</li>
-</ol>
-<p><strong>Publish path</strong></p>
-<ol>
-<li>先起 <code>npx hexo server</code>，给出 <a href="http://localhost:4000。">http://localhost:4000。</a></li>
-<li>预览确认后，同一轮执行 <code>hexo clean &amp;&amp; generate &amp;&amp; d</code>，并只 <code>git add source/_posts</code> 后 commit &#x2F; push。</li>
-<li>「别预览了 &#x2F; 已经预览过了」不构成跳过第 1 步的理由。</li>
-</ol>
-<p>description 只写触发条件，不把上述流程写进 YAML，避免 Agent 只读摘要、跳过正文。</p>
-<h2 id="3-4-REFACTOR"><a href="#3-4-REFACTOR" class="headerlink" title="3.4 REFACTOR"></a>3.4 REFACTOR</h2><p>用户改了两处发布约定，skill 跟着改，并再跑子 agent：</p>
-<ol>
-<li>发布必须先预览再问是否 <code>hexo d</code>。</li>
-<li>预览确认后，静态站部署与 hexo-source 备份合并为一步，不再二次询问 git。</li>
-</ol>
-<p>每轮对照：催促跳过预览时是否仍先 <code>hexo s</code>；确认发布后是否还多问一次 push。不通过就补 Red flags，再测。</p>
-<h1 id="4-闭环验证"><a href="#4-闭环验证" class="headerlink" title="4. 闭环验证"></a>4. 闭环验证</h1><p>本篇文章的 md 骨架即由 <code>creating-hexo-posts</code> 生成：清单 → 用户填 title &#x2F; categories &#x2F; tags &#x2F; 摘要 → 写入 <code>source/_posts/生成skill的skill.md</code>，<code>&lt;!--more--&gt;</code> 后为空。正文是后续对已有文件的修改，skill 明确把「改已有文章正文」划出 Create path。发布未执行。</p>
-<h1 id="5-产物清单"><a href="#5-产物清单" class="headerlink" title="5. 产物清单"></a>5. 产物清单</h1><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">~/.cursor/skills/writing-skills/          # 全局：约束如何写 skill<br>Hexo/.cursor/skills/creating-hexo-posts/  # 项目：约束如何建帖与发布<br>Hexo/source/_posts/生成skill的skill.md      # 本帖骨架（Create path 产物）<br></code></pre></td></tr></table></figure>
+<p>如果一按 <code>j</code> 变成按字母筛选而不是下移，把这项关掉：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;workbench.list.automaticKeyboardNavigation&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><br></code></pre></td></tr></table></figure>
 
-<p>使用约定：</p>
-<ul>
-<li>再写 skill → 走全局 <code>writing-skills</code>（需要时做 RED&#x2F;GREEN）</li>
-<li>再写博客骨架或发布 → 走项目 <code>creating-hexo-posts</code></li>
-<li>批量脚手架与量化评测 → 才考虑 Anthropic <code>skill-creator</code>；当前未部署</li>
-</ul>
+<p>Mac 原生命令：资源管理器里 <code>Enter</code> 常常是重命名。打开文件也可以用 <code>Win+↓</code>（即 Command+↓）或 <code>Win+Enter</code>（即 Command+Enter）。<code>l</code> 和 <code>Space</code> 都能打开文件：<code>l</code> 是 VSCodeVim，<code>Space</code> 是 VS Code 默认（<code>filesExplorer.openFilePreserveFocus</code>）。</p>
+<h1 id="行内找字符"><a href="#行内找字符" class="headerlink" title="行内找字符"></a>行内找字符</h1><p>Normal 模式、当前这一行里：</p>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>f</code> + 字符</td>
+<td>正向跳到该字符上</td>
+</tr>
+<tr>
+<td><code>F</code> + 字符</td>
+<td>反向跳到该字符上</td>
+</tr>
+<tr>
+<td><code>;</code></td>
+<td>重复上一次 <code>f</code>&#x2F;<code>F</code>&#x2F;<code>t</code>&#x2F;<code>T</code>，同一方向（<code>f</code> 之后就是下一个）</td>
+</tr>
+<tr>
+<td><code>,</code></td>
+<td>重复上一次，反方向（<code>f</code> 之后就是上一个）</td>
+</tr>
+</tbody></table>
+<p><code>t</code> &#x2F; <code>T</code> 是「停在目标字符前一格」，会改掉 <code>;</code> &#x2F; <code>,</code> 跟着重复的那次查找。只想在已经 <code>f</code> 过的结果里往回跳，用 <code>,</code>，不要再按 <code>t</code>。</p>
+<h1 id="全文件搜索"><a href="#全文件搜索" class="headerlink" title="全文件搜索"></a>全文件搜索</h1><table>
+<thead>
+<tr>
+<th>键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/</code> + 内容</td>
+<td>正向搜整份文件</td>
+</tr>
+<tr>
+<td><code>?</code> + 内容</td>
+<td>反向搜整份文件</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>同一方向的下一个</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>反方向的上一个</td>
+</tr>
+</tbody></table>
+<p><code>/</code> 和 <code>?</code> 都会改掉 <code>n</code> &#x2F; <code>N</code> 跟着的那次搜索，和行内的 <code>f</code> &#x2F; <code>;</code> &#x2F; <code>,</code> 不是一回事。</p>
 
                 
               </div>
@@ -407,7 +390,17 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Agent/" class="category-chain-item">Agent</a>
+  <a href="/categories/VSCode/" class="category-chain-item">VSCode</a>
+  
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Vim/" class="category-chain-item">Vim</a>
   
   
 
@@ -419,13 +412,6 @@
     </div>
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Skill/" class="print-no-link">#Skill</a>
-      
-    </div>
-  
 </div>
 
 
@@ -434,8 +420,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>生成skill的skill</div>
-      <div>https://qianchangeable.github.io/2026/09/12/生成skill的skill/</div>
+      <div>VSCode-Vim使用技巧</div>
+      <div>https://qianchangeable.github.io/2026/09/12/VSCode-Vim使用技巧/</div>
     </div>
     <div class="license-meta">
       
@@ -479,18 +465,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/09/12/VSCode-Vim%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="VSCode-Vim使用技巧">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">VSCode-Vim使用技巧</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/03/08/VSCode-Windows-Linux%E8%BF%9E%E6%8E%A5/" title="VSCode Windows/Linux连接">
-                        <span class="hidden-mobile">VSCode Windows/Linux连接</span>
+                      <a href="/2026/09/12/%E7%94%9F%E6%88%90skill%E7%9A%84skill/" title="生成skill的skill">
+                        <span class="hidden-mobile">生成skill的skill</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
