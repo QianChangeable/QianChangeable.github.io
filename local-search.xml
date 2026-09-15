@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>11.盛最多水的容器</title>
+    <link href="/2026/09/15/LeetCode/hot100/11.%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/"/>
+    <url>/2026/09/15/LeetCode/hot100/11.%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/</url>
+    
+    <content type="html"><![CDATA[<p>可花谢花开，终有梦醒时分.</p><span id="more"></span><h1 id="链接：11-盛最多水的容器"><a href="#链接：11-盛最多水的容器" class="headerlink" title="链接：11. 盛最多水的容器"></a>链接：<a href="https://leetcode.cn/problems/container-with-most-water/description/?envType=study-plan-v2&envId=top-100-liked">11. 盛最多水的容器</a></h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个长度为 <code>n</code> 的整数数组 <code>height</code> 。有 <code>n</code> 条垂线，第 <code>i</code> 条线的两个端点是 <code>(i, 0)</code> 和 <code>(i, height[i])</code> 。</p><p>找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p><p>返回容器可以储存的最大水量。</p><p><strong>说明</strong>：你不能倾斜容器。</p><p><strong>示例 1：</strong></p><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dns">输入：[<span class="hljs-number">1,8,6,2</span>,<span class="hljs-number">5,4,8,3</span>,<span class="hljs-number">7</span>]<br>输出：<span class="hljs-number">49</span> <br>解释：图中垂直线代表输入数组 [<span class="hljs-number">1,8,6,2</span>,<span class="hljs-number">5,4,8,3</span>,<span class="hljs-number">7</span>]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 <span class="hljs-number">49</span>。<br></code></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino">输入：height = [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]<br>输出：<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><p><strong>提示：</strong></p><ul><li><code>n == height.length</code></li><li><code>2 &lt;= n &lt;= 105</code></li><li><code>0 &lt;= height[i] &lt;= 104</code></li></ul><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>双指针，left right，然后贪心。</p><p>哪边高哪边的板子留着，高度按低的板子算（木桶效应）</p><p>然后用经典的max来比较即可。</p><h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><br><span class="hljs-comment">// @lc code=start</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxArea</span><span class="hljs-params">(std::vector&lt;<span class="hljs-type">int</span>&gt;&amp; height)</span> </span>&#123;<br>        <span class="hljs-type">int</span> left = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> right = height.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;<br><br>        <span class="hljs-type">int</span> maxV = <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">while</span> (left &lt; right) &#123;<br>            <span class="hljs-type">int</span> length = right - left;<br>            <span class="hljs-type">int</span> nowV = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">if</span> (height[left] &gt;= height[right]) &#123;<br>                nowV = length * height[right];<br>                right--;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                nowV = length * height[left];<br>                left++;<br>            &#125;<br><br>            maxV = std::<span class="hljs-built_in">max</span>(nowV, maxV);<br>        &#125;<br>        <span class="hljs-keyword">return</span> maxV;<br>    &#125;<br>&#125;;<br><span class="hljs-comment">// @lc code=end</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hot100</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>283.移动零</title>
     <link href="/2026/09/15/LeetCode/hot100/283.%E7%A7%BB%E5%8A%A8%E9%9B%B6/"/>
     <url>/2026/09/15/LeetCode/hot100/283.%E7%A7%BB%E5%8A%A8%E9%9B%B6/</url>
