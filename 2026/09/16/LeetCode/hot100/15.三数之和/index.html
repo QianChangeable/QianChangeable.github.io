@@ -27,7 +27,7 @@
 <meta property="og:description" content="可花谢花开，终有梦醒时分.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-09-16T10:43:43.000Z">
-<meta property="article:modified_time" content="2026-09-16T11:01:32.405Z">
+<meta property="article:modified_time" content="2026-09-17T08:03:39.780Z">
 <meta property="article:author" content="QianChang_">
 <meta property="article:tag" content="hot100">
 <meta name="twitter:card" content="summary_large_image">
@@ -282,13 +282,13 @@
 <h1 id="链接：15-三数之和"><a href="#链接：15-三数之和" class="headerlink" title="链接：15. 三数之和"></a>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/3sum/description/?envType=study-plan-v2&envId=top-100-liked">15. 三数之和</a></h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个整数数组 <code>nums</code> ，判断是否存在三元组 <code>[nums[i], nums[j], nums[k]]</code> 满足 <code>i != j</code>、<code>i != k</code> 且 <code>j != k</code> ，同时还满足 <code>nums[i] + nums[j] + nums[k] == 0</code> 。请你返回所有和为 <code>0</code> 且不重复的三元组。</p>
 <p><strong>注意</strong>：答案中不可以包含重复的三元组。</p>
 <p><strong>示例 1</strong>：</p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：nums = <span class="hljs-comment">[-1,0,1,2,-1,-4]</span><br>输出：<span class="hljs-comment">[<span class="hljs-comment">[-1,-1,2]</span>,<span class="hljs-comment">[-1,0,1]</span>]</span><br>解释：<br>nums<span class="hljs-comment">[0]</span> + nums<span class="hljs-comment">[1]</span> + nums<span class="hljs-comment">[2]</span> = (-1) + 0 + 1 = 0 。<br>nums<span class="hljs-comment">[1]</span> + nums<span class="hljs-comment">[2]</span> + nums<span class="hljs-comment">[4]</span> = 0 + 1 + (-1) = 0 。<br>nums<span class="hljs-comment">[0]</span> + nums<span class="hljs-comment">[3]</span> + nums<span class="hljs-comment">[4]</span> = (-1) + 2 + (-1) = 0 。<br>不同的三元组是 <span class="hljs-comment">[-1,0,1]</span> 和 <span class="hljs-comment">[-1,-1,2]</span> 。<br>注意，输出的顺序和三元组的顺序并不重要。<br></code></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs text">输入：nums = [-1,0,1,2,-1,-4]<br>输出：[[-1,-1,2],[-1,0,1]]<br>解释：<br>nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0 。<br>nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 。<br>nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。<br>不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。<br>注意，输出的顺序和三元组的顺序并不重要。<br></code></pre></td></tr></table></figure>
 
 <p><strong>示例 2</strong>：</p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs inform7">输入：nums = <span class="hljs-comment">[0,1,1]</span><br>输出：<span class="hljs-comment">[]</span><br>解释：唯一可能的三元组和不为 0 。<br></code></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">输入：nums = [0,1,1]<br>输出：[]<br>解释：唯一可能的三元组和不为 0 。<br></code></pre></td></tr></table></figure>
 
 <p><strong>示例 3</strong>：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs lua">输入：nums = [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>]<br>输出：<span class="hljs-string">[[0,0,0]]</span><br>解释：唯一可能的三元组和为 <span class="hljs-number">0</span> 。<br></code></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">输入：nums = [0,0,0]<br>输出：[[0,0,0]]<br>解释：唯一可能的三元组和为 0 。<br></code></pre></td></tr></table></figure>
 
 <p><strong>提示</strong>：</p>
 <ul>
