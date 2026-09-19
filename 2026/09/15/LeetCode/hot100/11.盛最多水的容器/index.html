@@ -88,7 +88,95 @@
   
 
 
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<style>
+  .aplayer.aplayer-fixed {
+    --ap-w: min(400px, 100vw);
+    left: auto !important;
+    right: 0 !important;
+    width: var(--ap-w);
+    background: transparent;
+    color: #000;
+    z-index: 102;
+    box-shadow: none;
+  }
+  .aplayer.aplayer-fixed .aplayer-body {
+    left: auto !important;
+    right: 0 !important;
+    width: var(--ap-w);
+    padding-right: 0;
+    padding-left: 18px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+  .aplayer.aplayer-fixed.aplayer-narrow,
+  .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+    width: 84px !important;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .aplayer.aplayer-fixed .aplayer-pic {
+    float: right;
+  }
+  .aplayer.aplayer-fixed.aplayer-narrow .aplayer-pic {
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: none;
+    margin: 0;
+  }
+  .aplayer.aplayer-fixed .aplayer-info {
+    margin-left: 0;
+    margin-right: 66px;
+    border-top: none;
+    transform-origin: right top !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-miniswitcher {
+    left: 0;
+    right: auto;
+    border-radius: 2px 0 0 2px;
+  }
+  .aplayer.aplayer-fixed .aplayer-miniswitcher .aplayer-icon {
+    transform: none;
+  }
+  .aplayer.aplayer-fixed.aplayer-narrow .aplayer-miniswitcher .aplayer-icon {
+    transform: rotateY(180deg);
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-list {
+    width: var(--ap-w);
+    margin-left: auto;
+    margin-bottom: 65px;
+    background: #fff;
+    border: 1px solid #e9e9e9;
+    border-bottom: none;
+    color: #333;
+  }
+  .aplayer.aplayer-fixed .aplayer-list.aplayer-list-hide {
+    border: none;
+    background: transparent;
+  }
+  .aplayer.aplayer-fixed .aplayer-list ol li {
+    border-top-color: #e9e9e9;
+    color: #333;
+  }
+  .aplayer.aplayer-fixed .aplayer-list ol li .aplayer-list-title {
+    color: #333;
+  }
+  .aplayer.aplayer-fixed .aplayer-list ol li .aplayer-list-author,
+  .aplayer.aplayer-fixed .aplayer-list ol li .aplayer-list-index {
+    color: #666;
+  }
+  .aplayer.aplayer-fixed .aplayer-list ol li:hover {
+    background: #efefef;
+  }
+  .aplayer.aplayer-fixed .aplayer-list ol li.aplayer-list-light {
+    background: #e9e9e9;
+  }
+</style>
+
 <meta name="generator" content="Hexo 8.1.2"></head>
 
 
@@ -870,7 +958,26 @@
 <script  src="/js/boot.js" ></script>
 
 
-  
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script>
+  window.meting_api = 'https://meting.mikus.ink/api?server=:server&type=:type&id=:id&r=:r';
+</script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+<meting-js
+  server="netease"
+  type="playlist"
+  id="8620977801"
+  fixed="true"
+  mini="true"
+  autoplay="false"
+  mutex="true"
+  list-folded="true"
+  order="list"
+  volume="0.6"
+  theme="#2f4154"
+  lrc-type="0">
+</meting-js>
+
 
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
