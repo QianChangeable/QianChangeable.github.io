@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://qianchangeable.github.io/img/hot100/3/3-2.png">
 <meta property="og:image" content="https://qianchangeable.github.io/img/hot100/11/11-title.jpg">
 <meta property="article:published_time" content="2026-09-18T14:23:12.000Z">
-<meta property="article:modified_time" content="2026-09-23T04:02:28.384Z">
+<meta property="article:modified_time" content="2026-09-30T07:17:07.750Z">
 <meta property="article:author" content="QianChang_">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://qianchangeable.github.io/img/hot100/1/1.png">
@@ -102,11 +102,27 @@
     color: #000;
     z-index: 102;
     box-shadow: none;
+    /* Avoid first-paint expand→mini flash before init */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .aplayer.aplayer-fixed.aplayer-inited {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  /* Do not clamp width before init: APlayer writes inline body width from
+     offsetWidth at fixed-mode setup; a clamped measure breaks left expand. */
+  .aplayer.aplayer-fixed:not(.aplayer-inited),
+  .aplayer.aplayer-fixed:not(.aplayer-inited) .aplayer-body,
+  .aplayer.aplayer-fixed:not(.aplayer-inited) .aplayer-info {
+    transition: none !important;
   }
   .aplayer.aplayer-fixed .aplayer-body {
     left: auto !important;
     right: 0 !important;
-    width: var(--ap-w);
+    width: var(--ap-w) !important;
     padding-right: 0;
     padding-left: 18px;
     background: #fff;
@@ -384,7 +400,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2026年9月23日 中午
+                    本文最后更新于 2026年9月30日 下午
                   
                 
               </p>
@@ -905,7 +921,8 @@
 
   <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
 <script>
-  window.meting_api = 'https://meting.mikus.ink/api?server=:server&type=:type&id=:id&r=:r';
+  // window.meting_api = 'https://meting.mikus.ink/api?server=:server&type=:type&id=:id&r=:r';
+  window.meting_api = 'https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r';
 </script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
 <meting-js
@@ -922,6 +939,453 @@
   theme="#2f4154"
   lrc-type="0">
 </meting-js>
+<script>
+  (function () {
+    var PLAYLIST_ID = '8620977801';
+    var STORAGE_KEY = 'hexo-aplayer-resume:' + PLAYLIST_ID;
+    var SAVE_TTL_MS = 24 * 60 * 60 * 1000;
+
+    var shown = false;
+    var started = false;
+    var wantPlay = true; // only cleared by explicit user pause click
+    var lastKnown = { index: 0, time: 0, volume: 0.6 };
+    var targetTime = 0;
+    var gestureArmed = false;
+    var bootstrapped = false;
+
+    function getPlayer() {
+      var meting = document.querySelector('meting-js');
+      return meting && meting.aplayer ? meting.aplayer : null;
+    }
+
+    function loadState() {
+      try {
+        var s = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+        if (!s || typeof s !== 'object') return null;
+        if (s.ts && Date.now() - s.ts > SAVE_TTL_MS) return null;
+        return s;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function remember(ap) {
+      if (!ap || !ap.list) return;
+      if (typeof ap.list.index === 'number') lastKnown.index = ap.list.index;
+      if (ap.audio && isFinite(ap.audio.currentTime) && ap.audio.currentTime > 0.5) {
+        lastKnown.time = ap.audio.currentTime;
+      }
+      if (ap.audio && isFinite(ap.audio.volume)) lastKnown.volume = ap.audio.volume;
+    }
+
+    function save() {
+      var ap = getPlayer();
+      if (!ap || !ap.list) return;
+      remember(ap);
+      var live = ap.audio && isFinite(ap.audio.currentTime) ? ap.audio.currentTime : 0;
+      var time = live > 0.5 ? live : lastKnown.time;
+      var index = typeof ap.list.index === 'number' ? ap.list.index : lastKnown.index;
+      if (live <= 0.5 && lastKnown.time > 0.5) index = lastKnown.index;
+      try {
+        localStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify({
+            index: index,
+            time: time,
+            playing: wantPlay,
+            volume: lastKnown.volume,
+            ts: Date.now()
+          })
+        );
+      } catch (e) { /* ignore */ }
+    }
+
+    function isPlaying(ap) {
+      return !!(ap && ap.audio && !ap.audio.paused && !ap.audio.ended);
+    }
+
+    function isReady(ap) {
+      if (!ap || !ap.audio || !ap.list || !ap.list.audios || !ap.list.audios.length) return false;
+      var src = ap.audio.currentSrc || ap.audio.src || '';
+      return !!src && ap.audio.readyState >= 2;
+    }
+
+    function waitReady(ap, timeoutMs) {
+      return new Promise(function (resolve) {
+        if (!ap) return resolve(false);
+        var t0 = Date.now();
+        var audio = ap.audio;
+        var finished = false;
+
+        var finish = function (ok) {
+          if (finished) return;
+          finished = true;
+          cleanup();
+          resolve(!!ok);
+        };
+
+        var check = function () {
+          if (ap.audio && ap.audio !== audio) {
+            rebind();
+          }
+          if (isReady(ap)) finish(true);
+          else if (Date.now() - t0 > (timeoutMs || 15000)) {
+            finish(!!(ap.audio && (ap.audio.currentSrc || ap.audio.src)));
+          }
+        };
+
+        var onEvt = function () {
+          check();
+        };
+
+        var rebind = function () {
+          if (audio) {
+            ['loadeddata', 'canplay', 'canplaythrough'].forEach(function (e) {
+              audio.removeEventListener(e, onEvt);
+            });
+          }
+          audio = ap.audio;
+          if (audio) {
+            ['loadeddata', 'canplay', 'canplaythrough'].forEach(function (e) {
+              audio.addEventListener(e, onEvt);
+            });
+          }
+        };
+
+        var cleanup = function () {
+          clearInterval(iv);
+          if (audio) {
+            ['loadeddata', 'canplay', 'canplaythrough'].forEach(function (e) {
+              audio.removeEventListener(e, onEvt);
+            });
+          }
+        };
+
+        rebind();
+        var iv = setInterval(check, 150);
+        check();
+      });
+    }
+
+    function seekTo(ap, time) {
+      if (!ap || !ap.audio || !(time > 1)) return Promise.resolve();
+      return new Promise(function (resolve) {
+        var n = 0;
+        var tick = function () {
+          n += 1;
+          var cur = ap.audio.currentTime || 0;
+          if (Math.abs(cur - time) < 1.5) return resolve();
+          try {
+            if (typeof ap.seek === 'function') ap.seek(time);
+            else ap.audio.currentTime = time;
+          } catch (e) { /* ignore */ }
+          if (n >= 15) return resolve();
+          setTimeout(tick, 120);
+        };
+        tick();
+      });
+    }
+
+    function autoplayPolicy(ap) {
+      try {
+        if (typeof navigator.getAutoplayPolicy === 'function') {
+          if (ap && ap.audio) return navigator.getAutoplayPolicy(ap.audio);
+          return navigator.getAutoplayPolicy('mediaelement');
+        }
+      } catch (e) { /* ignore */ }
+      return 'unknown';
+    }
+
+    function callPlay(ap) {
+      return new Promise(function (resolve) {
+        if (!ap) return resolve({ ok: false, reason: 'no-player' });
+        try {
+          var ret = ap.play();
+          if (ret && typeof ret.then === 'function') {
+            ret
+              .then(function () {
+                setTimeout(function () {
+                  resolve({ ok: isPlaying(ap), reason: 'played' });
+                }, 180);
+              })
+              .catch(function (err) {
+                resolve({ ok: false, reason: (err && err.name) || 'rejected' });
+              });
+            return;
+          }
+          setTimeout(function () {
+            resolve({ ok: isPlaying(ap), reason: 'sync' });
+          }, 180);
+        } catch (e) {
+          resolve({ ok: false, reason: (e && e.name) || 'throw' });
+        }
+      });
+    }
+
+    /**
+     * Avoid the play→pause flash: do NOT call unmuted play() when the browser
+     * will reject it. Prefer muted autoplay (usually allowed), then unmute.
+     */
+    function startPlayback(ap) {
+      return new Promise(function (resolve) {
+        if (!ap || !ap.audio) return resolve({ ok: false, reason: 'no-player' });
+        if (!wantPlay) return resolve({ ok: true, reason: 'user-paused' });
+        if (isPlaying(ap) && !ap.audio.muted) {
+          return resolve({ ok: true, reason: 'already' });
+        }
+
+        var policy = autoplayPolicy(ap);
+        var audio = ap.audio;
+
+        var afterMutedPlay = function () {
+          // Try unmute without gesture first (works on some engines / MEI sites)
+          audio.muted = false;
+          setTimeout(function () {
+            if (isPlaying(ap) && !audio.muted) {
+              resolve({ ok: true, reason: 'muted-unmute' });
+              return;
+            }
+            if (isPlaying(ap) && audio.muted) {
+              // Keep playing muted; one click will only unmute (no play/pause jump)
+              resolve({ ok: true, reason: 'muted-playing', needUnmute: true });
+              return;
+            }
+            resolve({ ok: false, reason: 'muted-play-lost' });
+          }, 120);
+        };
+
+        var tryMuted = function () {
+          audio.muted = true;
+          callPlay(ap).then(function (r) {
+            if (r.ok || isPlaying(ap)) {
+              afterMutedPlay();
+              return;
+            }
+            // Last resort: direct element play while muted
+            var p = audio.play();
+            if (p && typeof p.then === 'function') {
+              p.then(afterMutedPlay).catch(function () {
+                audio.muted = false;
+                resolve({ ok: false, reason: 'muted-rejected' });
+              });
+            } else {
+              audio.muted = false;
+              resolve({ ok: false, reason: 'muted-rejected' });
+            }
+          });
+        };
+
+        if (policy === 'allowed') {
+          audio.muted = false;
+          callPlay(ap).then(function (r) {
+            if (r.ok) resolve(r);
+            else tryMuted();
+          });
+          return;
+        }
+
+        // allowed-muted / disallowed / unknown → never flash an unmuted play() first
+        tryMuted();
+      });
+    }
+
+    function armGesturePlay(needUnmuteOnly) {
+      if (gestureArmed || !wantPlay) return;
+      gestureArmed = true;
+      var events = ['pointerdown', 'keydown', 'touchstart', 'click'];
+      var onGesture = function () {
+        if (!wantPlay) return teardown();
+        var ap = getPlayer();
+        if (!ap || !ap.audio) return;
+
+        // If already playing muted, just unmute — no toggle
+        if (isPlaying(ap) && ap.audio.muted) {
+          ap.audio.muted = false;
+          teardown();
+          return;
+        }
+        if (isPlaying(ap) && !ap.audio.muted) return teardown();
+
+        waitReady(ap, 8000)
+          .then(function () {
+            return seekTo(ap, targetTime);
+          })
+          .then(function () {
+            if (ap.audio) ap.audio.muted = false;
+            return callPlay(ap);
+          })
+          .then(function (r) {
+            if (r && r.ok) teardown();
+          });
+      };
+      var teardown = function () {
+        gestureArmed = false;
+        events.forEach(function (e) {
+          document.removeEventListener(e, onGesture, true);
+        });
+      };
+      events.forEach(function (e) {
+        document.addEventListener(e, onGesture, true);
+      });
+    }
+
+    /** Single boot path — no overlapping retry/pause storms */
+    function bootstrap(ap) {
+      if (bootstrapped) return;
+      bootstrapped = true;
+
+      var state = loadState();
+      if (state) {
+        wantPlay = state.playing !== false;
+        targetTime = typeof state.time === 'number' ? state.time : 0;
+        lastKnown.index = typeof state.index === 'number' ? state.index : 0;
+        lastKnown.time = targetTime;
+        lastKnown.volume = typeof state.volume === 'number' ? state.volume : 0.6;
+      } else {
+        wantPlay = true;
+        targetTime = 0;
+      }
+
+      // Bind once: progress save + user pause detection (click only)
+      if (ap.audio) {
+        ap.audio.addEventListener('timeupdate', function () {
+          remember(ap);
+          // light persist
+          if (Date.now() - (save._t || 0) > 1000) {
+            save._t = Date.now();
+            save();
+          }
+        });
+      }
+
+      if (ap.container) {
+        ap.container.addEventListener(
+          'click',
+          function (e) {
+            var t = e.target;
+            if (!t || !t.closest) return;
+            // User explicitly paused
+            if (t.closest('.aplayer-icon-pause')) {
+              wantPlay = false;
+              targetTime = 0;
+              save();
+              return;
+            }
+            // User explicitly played
+            if (t.closest('.aplayer-icon-play') || t.closest('.aplayer-pic')) {
+              // pic toggles; if currently playing, next state is pause
+              if (isPlaying(ap) && t.closest('.aplayer-pic')) {
+                wantPlay = false;
+                targetTime = 0;
+              } else {
+                wantPlay = true;
+              }
+              save();
+            }
+          },
+          true
+        );
+      }
+
+      window.addEventListener('pagehide', save);
+      window.addEventListener('beforeunload', save);
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'hidden') save();
+      });
+
+      // Volume restore
+      if (state && typeof state.volume === 'number' && typeof ap.volume === 'function') {
+        try {
+          ap.volume(state.volume, true);
+        } catch (e) { /* ignore */ }
+      }
+
+      waitReady(ap, 15000)
+        .then(function () {
+          // Switch track if needed (after playlist exists)
+          if (
+            state &&
+            typeof state.index === 'number' &&
+            ap.list &&
+            state.index !== ap.list.index &&
+            state.index >= 0 &&
+            state.index < ap.list.audios.length &&
+            typeof ap.list.switch === 'function'
+          ) {
+            try {
+              ap.list.switch(state.index);
+            } catch (e) { /* ignore */ }
+            return waitReady(ap, 15000);
+          }
+        })
+        .then(function () {
+          return seekTo(ap, targetTime);
+        })
+        .then(function () {
+          if (!wantPlay) return { ok: true, reason: 'user-paused' };
+          return startPlayback(ap);
+        })
+        .then(function (r) {
+          if (!wantPlay) return;
+          if (r && r.ok) {
+            if (targetTime > 5 && ap.audio && ap.audio.currentTime < 2) {
+              seekTo(ap, targetTime);
+            }
+            // Playing but still muted → one click only unmutes (no play/pause jump)
+            if (r.needUnmute || (ap.audio && ap.audio.muted)) {
+              armGesturePlay(true);
+            }
+            return;
+          }
+          armGesturePlay(false);
+        });
+    }
+
+    function tryStart() {
+      var ap = getPlayer();
+      if (!ap || !ap.list || !ap.list.audios || !ap.list.audios.length) return;
+      if (started) return;
+      started = true;
+      bootstrap(ap);
+    }
+
+    function revealMiniPlayer() {
+      if (shown) return;
+      var el = document.querySelector('.aplayer.aplayer-fixed.aplayer-narrow');
+      if (!el) return;
+      requestAnimationFrame(function () {
+        el.classList.add('aplayer-inited');
+        shown = true;
+        tryStart();
+      });
+    }
+
+    var observer = new MutationObserver(function () {
+      revealMiniPlayer();
+      tryStart();
+      if (shown && started) observer.disconnect();
+    });
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class']
+    });
+    revealMiniPlayer();
+    setTimeout(function () {
+      observer.disconnect();
+      revealMiniPlayer();
+      if (!shown) {
+        var el = document.querySelector('.aplayer.aplayer-fixed');
+        if (el) {
+          el.classList.add('aplayer-inited');
+          shown = true;
+        }
+      }
+      tryStart();
+    }, 15000);
+  })();
+</script>
 
 
   <noscript>
