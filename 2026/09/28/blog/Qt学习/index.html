@@ -36,8 +36,16 @@
 <meta property="og:image" content="https://qianchangeable.github.io/img/blog/Qt%E5%AD%A6%E4%B9%A0/7-textline.png">
 <meta property="og:image" content="https://qianchangeable.github.io/img/blog/Qt%E5%AD%A6%E4%B9%A0/8-textline-2.png">
 <meta property="og:image" content="https://qianchangeable.github.io/img/blog/Qt%E5%AD%A6%E4%B9%A0/2-signal.gif">
+<meta property="og:image" content="https://qianchangeable.github.io/img/blog/Qt%E5%AD%A6%E4%B9%A0/9-mac.png">
+<meta property="og:image" content="https://qianchangeable.github.io/img/blog/Qt%E5%AD%A6%E4%B9%A0/10-vscode.png">
+<meta property="og:image" content="https://qianchangeable.github.io/img/blog/Qt%E5%AD%A6%E4%B9%A0/11-vscode-2.png">
+<meta property="og:image" content="https://qianchangeable.github.io/img/blog/Qt%E5%AD%A6%E4%B9%A0/12-window.png">
+<meta property="og:image" content="https://qianchangeable.github.io/img/blog/Qt%E5%AD%A6%E4%B9%A0/14.png">
+<meta property="og:image" content="https://qianchangeable.github.io/img/blog/Qt%E5%AD%A6%E4%B9%A0/15.png">
+<meta property="og:image" content="https://qianchangeable.github.io/img/blog/Qt%E5%AD%A6%E4%B9%A0/16.png">
+<meta property="og:image" content="https://qianchangeable.github.io/img/blog/Qt%E5%AD%A6%E4%B9%A0/17.png">
 <meta property="article:published_time" content="2026-09-28T14:03:00.000Z">
-<meta property="article:modified_time" content="2026-09-30T06:43:57.092Z">
+<meta property="article:modified_time" content="2026-10-01T13:24:34.935Z">
 <meta property="article:author" content="QianChang_">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://qianchangeable.github.io/img/blog/Qt%E5%AD%A6%E4%B9%A0/1-window.png">
@@ -339,7 +347,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          5.1k 字
         
       </span>
     
@@ -350,7 +358,7 @@
         
         
         
-          28 分钟
+          43 分钟
         
       </span>
     
@@ -405,7 +413,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2026年9月30日 下午
+                    本文最后更新于 2026年10月1日 晚上
                   
                 
               </p>
@@ -679,8 +687,7 @@
 <ul>
 <li><code>explicit</code>：禁止把 <code>QWidget*</code> 隐式转成 <code>MainWindow</code>，避免误用</li>
 </ul>
-<hr>
-<h1 id="3-信号与槽"><a href="#3-信号与槽" class="headerlink" title="3.信号与槽"></a>3.信号与槽</h1><p>OK，开始学习信号槽吧。</p>
+<h1 id="3-信号与槽"><a href="#3-信号与槽" class="headerlink" title="3.*信号与槽"></a>3.*信号与槽</h1><p>OK，开始学习信号槽吧。</p>
 <p>在mainwindow.cpp中补充好槽函数：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">MainWindow::onButtonClicked</span><span class="hljs-params">()</span> </span>&#123;<br>	m_button-&gt;<span class="hljs-built_in">setText</span>(<span class="hljs-string">&quot;Clicked!&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -740,6 +747,188 @@
 
 <p>效果：打字时按钮文字和窗口标题一起变。</p>
 <p><img src="/img/blog/Qt%E5%AD%A6%E4%B9%A0/2-signal.gif" srcset="/img/loading.gif" lazyload></p>
+<p>切换到Mac了，看看Mac效果：</p>
+<p><img src="/img/blog/Qt%E5%AD%A6%E4%B9%A0/9-mac.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="4-美化窗口"><a href="#4-美化窗口" class="headerlink" title="4.美化窗口"></a>4.美化窗口</h1><p>现在你已经学会了信号与槽，想为后续做 <code>hexo</code> 的个人发布程序！目前想往 <code>VSCode</code> 的那种样式靠近。</p>
+<p><code>just do it</code>！</p>
+<p>好，那么好。目前我是在 <code>macOS</code> 上继续开发，因为 <code>Windows</code> 是游戏本，风扇呼呼呼吵的我头疼（笑）</p>
+<p><code>VSCode</code> 的界面如下图：</p>
+<p><img src="/img/blog/Qt%E5%AD%A6%E4%B9%A0/10-vscode.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/img/blog/Qt%E5%AD%A6%E4%B9%A0/11-vscode-2.png" srcset="/img/loading.gif" lazyload></p>
+<p>让 <code>ai</code> 帮我拆了一下布局。大概是这样。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs text">┌────┬─────┬─────────────────────────────────────────┐<br>│    │     │   A                                     │<br>│    │     ├─────────────────────────────────────────┤<br>│ B  │  C  │  D                                      │<br>│    │     │  ┌────────────────────────────────────┐ │<br>│    │     │  │                                    │ │<br>│    │     │  ├────────────────────────────────────┤ │<br>│    │     │  │                                    │ │<br>│    │     │  │                                    │ │<br>│    │     │  └────────────────────────────────────┘ │<br>├────┴─────┴─────────────────────────────────────────┤<br>│  E                                                 │<br>└────────────────────────────────────────────────────┘<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs text">QVBoxLayout<br>├── QHBoxLayout（中间）  stretch=1<br>│   ├── B 活动栏        通到顶<br>│   ├── C 侧边栏        通到顶<br>│   └── 右侧 QVBoxLayout<br>│       ├── A 顶栏<br>│       └── D 内容<br>└── E 状态栏            整窗贴底<br></code></pre></td></tr></table></figure>
+
+<p>最外层现在是我们的主窗口（容器），需要在主窗口中去套容器。</p>
+<p>先把按钮和输入框删掉：</p>
+<p>当前现状</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-77f9195f" role="button" aria-expanded="false" aria-controls="collapse-77f9195f">
+        <div class="fold-arrow">▶</div>mainwindow.h
+      </div>
+      <div class="fold-collapse collapse" id="collapse-77f9195f">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> once</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QWidget&gt;</span></span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MainWindow</span> : <span class="hljs-keyword">public</span> QWidget &#123;<br>	Q_OBJECT<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">MainWindow</span><span class="hljs-params">(QWidget* parent = <span class="hljs-literal">nullptr</span>)</span></span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-112ab24c" role="button" aria-expanded="false" aria-controls="collapse-112ab24c">
+        <div class="fold-arrow">▶</div>mainwindow.cpp
+      </div>
+      <div class="fold-collapse collapse" id="collapse-112ab24c">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;mainwindow.h&quot;</span></span><br><br>MainWindow::<span class="hljs-built_in">MainWindow</span>(QWidget *parent) : <span class="hljs-built_in">QWidget</span>(parent)<br>&#123;<br>	<span class="hljs-built_in">setWindowTitle</span>(<span class="hljs-string">&quot;Hello, Qt!&quot;</span>);<br>	<span class="hljs-built_in">resize</span>(<span class="hljs-number">1200</span>, <span class="hljs-number">800</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+<p>接下来要完成基本的布局。创建 <code>widget</code> 文件夹，在内部添加好各个 <code>widget.h</code> &#x2F; <code>.cpp</code>，交给 <code>ai</code> 批量完成。</p>
+<p>比较关键的文件 <code>mainwindow.h</code> 和 <code>.cpp</code>：</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-823f3cad" role="button" aria-expanded="false" aria-controls="collapse-823f3cad">
+        <div class="fold-arrow">▶</div>mainwindow.h
+      </div>
+      <div class="fold-collapse collapse" id="collapse-823f3cad">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> once</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QWidget&gt;</span></span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TitleBar</span>;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ActivityBar</span>;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SideBar</span>;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ContentArea</span>;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">StatusBar</span>;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MainWindow</span> : <span class="hljs-keyword">public</span> QWidget &#123;<br>	Q_OBJECT<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">MainWindow</span><span class="hljs-params">(QWidget* parent = <span class="hljs-literal">nullptr</span>)</span></span>;<br><br><span class="hljs-keyword">private</span>:<br>	TitleBar* m_titleBar = <span class="hljs-literal">nullptr</span>;<br>	ActivityBar* m_activityBar = <span class="hljs-literal">nullptr</span>;<br>	SideBar* m_sideBar = <span class="hljs-literal">nullptr</span>;<br>	ContentArea* m_contentArea = <span class="hljs-literal">nullptr</span>;<br>	StatusBar* m_statusBar = <span class="hljs-literal">nullptr</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-1f346647" role="button" aria-expanded="false" aria-controls="collapse-1f346647">
+        <div class="fold-arrow">▶</div>mainwindow.cpp
+      </div>
+      <div class="fold-collapse collapse" id="collapse-1f346647">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;mainwindow.h&quot;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;widgets/activitybar.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;widgets/contentarea.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;widgets/sidebar.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;widgets/statusbar.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;widgets/titlebar.h&quot;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QHBoxLayout&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QVBoxLayout&gt;</span></span><br><br>MainWindow::<span class="hljs-built_in">MainWindow</span>(QWidget* parent) : <span class="hljs-built_in">QWidget</span>(parent) &#123;<br>	<span class="hljs-built_in">setWindowTitle</span>(<span class="hljs-string">&quot;Hello, Qt!&quot;</span>);<br>	<span class="hljs-built_in">resize</span>(<span class="hljs-number">1200</span>, <span class="hljs-number">800</span>);<br><br>	m_titleBar = <span class="hljs-keyword">new</span> <span class="hljs-built_in">TitleBar</span>(<span class="hljs-keyword">this</span>);<br>	m_activityBar = <span class="hljs-keyword">new</span> <span class="hljs-built_in">ActivityBar</span>(<span class="hljs-keyword">this</span>);<br>	m_sideBar = <span class="hljs-keyword">new</span> <span class="hljs-built_in">SideBar</span>(<span class="hljs-keyword">this</span>);<br>	m_contentArea = <span class="hljs-keyword">new</span> <span class="hljs-built_in">ContentArea</span>(<span class="hljs-keyword">this</span>);<br>	m_statusBar = <span class="hljs-keyword">new</span> <span class="hljs-built_in">StatusBar</span>(<span class="hljs-keyword">this</span>);<br><br>	QVBoxLayout* rightColumn = <span class="hljs-keyword">new</span> <span class="hljs-built_in">QVBoxLayout</span>();<br>	rightColumn-&gt;<span class="hljs-built_in">setContentsMargins</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>	rightColumn-&gt;<span class="hljs-built_in">setSpacing</span>(<span class="hljs-number">0</span>);<br>	rightColumn-&gt;<span class="hljs-built_in">addWidget</span>(m_titleBar);<br>	rightColumn-&gt;<span class="hljs-built_in">addWidget</span>(m_contentArea, <span class="hljs-number">1</span>);<br><br>	QHBoxLayout* middleRow = <span class="hljs-keyword">new</span> <span class="hljs-built_in">QHBoxLayout</span>();<br>	middleRow-&gt;<span class="hljs-built_in">setContentsMargins</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>	middleRow-&gt;<span class="hljs-built_in">setSpacing</span>(<span class="hljs-number">0</span>);<br>	middleRow-&gt;<span class="hljs-built_in">addWidget</span>(m_activityBar);<br>	middleRow-&gt;<span class="hljs-built_in">addWidget</span>(m_sideBar);<br>	middleRow-&gt;<span class="hljs-built_in">addLayout</span>(rightColumn, <span class="hljs-number">1</span>);<br><br>	QVBoxLayout* root = <span class="hljs-keyword">new</span> <span class="hljs-built_in">QVBoxLayout</span>(<span class="hljs-keyword">this</span>);<br>	root-&gt;<span class="hljs-built_in">setContentsMargins</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>	root-&gt;<span class="hljs-built_in">setSpacing</span>(<span class="hljs-number">0</span>);<br>	root-&gt;<span class="hljs-built_in">addLayout</span>(middleRow, <span class="hljs-number">1</span>);<br>	root-&gt;<span class="hljs-built_in">addWidget</span>(m_statusBar);<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+<p>效果如下：</p>
+<p><img src="/img/blog/Qt%E5%AD%A6%E4%B9%A0/12-window.png" srcset="/img/loading.gif" lazyload></p>
+<hr>
+<p>好，那么好。现在添加一个 <code>button</code>。步骤是什么？</p>
+<p>在 <code>sidebar.h</code> 中，前向声明 <code>class QPushButton</code>（即声明 <code>QPushButton</code> 类），在窗口类中声明私有成员 <code>QPushButton</code> 的指针 <code>m_createDir</code>，并初始化为 <code>nullptr</code>。随后在 <code>.cpp</code> 中创建该对象，并且传递参数 <code>this</code> 指针，将按钮加载到 <code>SideBar</code> 窗口上，作为子控件。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">m_createDir = <span class="hljs-keyword">new</span> <span class="hljs-built_in">QPushButton</span>(<span class="hljs-keyword">this</span>);<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/blog/Qt%E5%AD%A6%E4%B9%A0/14.png" srcset="/img/loading.gif" lazyload></p>
+<p>可以看到，这个按钮默认在左上角。很小对吧。那我们现在尝试用布局 <code>layout</code> 让它对齐上方中间，并且命名为“选择文件目录”。</p>
+<p><code>setContentsMargins</code> 传入的四个参数，设置的顺序是：左上右下。</p>
+<p><code>setSpacing</code> 设置的是控件之间的间距。</p>
+<p><code>addWidget</code>，将按钮放进 <code>layout</code></p>
+<p><code>addStretch</code> 让按钮下面塞可伸缩空白，把按钮顶在上方，下面空出来</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++">m_createDir = <span class="hljs-keyword">new</span> <span class="hljs-built_in">QPushButton</span>(<span class="hljs-string">&quot;选择工作目录&quot;</span>, <span class="hljs-keyword">this</span>);<br><br>QVBoxLayout* layout = <span class="hljs-keyword">new</span> <span class="hljs-built_in">QVBoxLayout</span>(<span class="hljs-keyword">this</span>);<br>layout-&gt;<span class="hljs-built_in">setContentsMargins</span>(<span class="hljs-number">12</span>, <span class="hljs-number">12</span>, <span class="hljs-number">12</span>, <span class="hljs-number">12</span>);<br>layout-&gt;<span class="hljs-built_in">setSpacing</span>(<span class="hljs-number">8</span>);<br>layout-&gt;<span class="hljs-built_in">addWidget</span>(m_createDir);<br>layout-&gt;<span class="hljs-built_in">addStretch</span>(<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/blog/Qt%E5%AD%A6%E4%B9%A0/15.png" srcset="/img/loading.gif" lazyload></p>
+<p>你可能会好奇，为什么这个按钮有背景色，也和刚开始的不一样了？因为内联了一个 <code>StyleSheet</code>。</p>
+<p>这个感觉前端同学会很熟悉（笑）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">setStyleSheet</span>(<br>	<span class="hljs-string">&quot;SideBar &#123; background: #252526; &#125;&quot;</span>           <span class="hljs-comment">// 侧边栏背景色</span><br>	<span class="hljs-string">&quot;QPushButton &#123;&quot;</span><br>	<span class="hljs-string">&quot;  color: #ffffff;&quot;</span>                          <span class="hljs-comment">// 按钮文字颜色</span><br>	<span class="hljs-string">&quot;  background: #0e639c;&quot;</span>                     <span class="hljs-comment">// 按钮背景色</span><br>	<span class="hljs-string">&quot;  border: none;&quot;</span>                            <span class="hljs-comment">// 去掉默认边框</span><br>	<span class="hljs-string">&quot;  border-radius: 4px;&quot;</span>                      <span class="hljs-comment">// 圆角</span><br>	<span class="hljs-string">&quot;  padding: 6px 10px;&quot;</span>                       <span class="hljs-comment">// 内边距：上下 6，左右 10</span><br>	<span class="hljs-string">&quot;&#125;&quot;</span><br>	<span class="hljs-string">&quot;QPushButton:hover &#123; background: #1177bb; &#125;&quot;</span>); <span class="hljs-comment">// 悬停时背景更亮一点</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>好，那么我们目前有了一个按钮。点击这个按钮应该会弹出系统的文件夹选择面板（<code>macOS</code> 上是访达风格），用来选择博客的根目录。</p>
+<p>这里用到的是 <code>QFileDialog</code>，不是 <code>QFile</code>。<code>QFileDialog</code> 负责弹出对话框并返回路径字符串；真正读写某个 <code>.md</code> 时才会用到 <code>QFile</code>。</p>
+<p>先加槽函数。</p>
+<p>在 <code>sidebar.h</code> 中添加：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">private</span> slots:<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">onCreateDirClicked</span><span class="hljs-params">()</span></span>;<br></code></pre></td></tr></table></figure>
+
+<p>并加一个私有成员保存路径：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++">QString m_workingDirectory;<br></code></pre></td></tr></table></figure>
+
+<p>在 <code>.cpp</code> 文件末尾添加空实现：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SideBar::onCreateDirClicked</span><span class="hljs-params">()</span> </span>&#123;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>接下来补头文件（写在 <code>sidebar.cpp</code> 里即可）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QFileDialog&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QDir&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p>构造函数里连接信号与槽：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">connect</span>(m_createDir, &amp;QPushButton::clicked, <span class="hljs-keyword">this</span>, &amp;SideBar::onCreateDirClicked);<br></code></pre></td></tr></table></figure>
+
+<p>槽函数内部这样写：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SideBar::onCreateDirClicked</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-type">const</span> QString dir = QFileDialog::<span class="hljs-built_in">getExistingDirectory</span>(<br>		<span class="hljs-keyword">this</span>,<br>		<span class="hljs-built_in">tr</span>(<span class="hljs-string">&quot;选择工作目录&quot;</span>),<br>		m_workingDirectory.<span class="hljs-built_in">isEmpty</span>() ? QDir::<span class="hljs-built_in">homePath</span>() : m_workingDirectory);<br><br>	<span class="hljs-keyword">if</span> (dir.<span class="hljs-built_in">isEmpty</span>()) &#123;<br>		<span class="hljs-keyword">return</span>; <span class="hljs-comment">// 用户取消</span><br>	&#125;<br><br>	m_workingDirectory = dir;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>getExistingDirectory</code> 四个相关含义：父窗口、对话框标题、起始目录。返回值是选中的绝对路径；点取消则为空字符串。</p>
+<p>效果如下：</p>
+<p><img src="/img/blog/Qt%E5%AD%A6%E4%B9%A0/16.png" srcset="/img/loading.gif" lazyload></p>
+<hr>
+<p>ok，那我们现在是可以打开了。我们该如何确认 <code>m_workingDirectory</code> 存储的值呢？</p>
+<p>在 <code>sidebar</code> 中声明信号，并且在选中目录后，将信号发出。<code>contentarea</code> 声明 <code>public</code> 槽，在 <code>.cpp</code> 文件中补充完成槽的实现。最后在 <code>mainwindow</code> 中完成信号与槽的连接。</p>
+<p>代码如下：</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-9959f90a" role="button" aria-expanded="false" aria-controls="collapse-9959f90a">
+        <div class="fold-arrow">▶</div>sidebar.h
+      </div>
+      <div class="fold-collapse collapse" id="collapse-9959f90a">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++">signals:<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">workingDirectoryLocation</span><span class="hljs-params">(<span class="hljs-type">const</span> QString&amp; path)</span></span>;<br><br><span class="hljs-keyword">private</span> slots:<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">onCreateDirClicked</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-keyword">private</span>:<br>	QPushButton* m_createDir = <span class="hljs-literal">nullptr</span>;<br>	QString m_workingDirectory;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-93783119" role="button" aria-expanded="false" aria-controls="collapse-93783119">
+        <div class="fold-arrow">▶</div>sidebar.cpp
+      </div>
+      <div class="fold-collapse collapse" id="collapse-93783119">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SideBar::onCreateDirClicked</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-type">const</span> QString dir = QFileDialog::<span class="hljs-built_in">getExistingDirectory</span>(<br>		<span class="hljs-keyword">this</span>,<br>		<span class="hljs-built_in">tr</span>(<span class="hljs-string">&quot;选择工作目录&quot;</span>),<br>		m_workingDirectory.<span class="hljs-built_in">isEmpty</span>() ? QDir::<span class="hljs-built_in">homePath</span>() : m_workingDirectory);<br><br>	<span class="hljs-keyword">if</span> (dir.<span class="hljs-built_in">isEmpty</span>()) &#123;<br>		<span class="hljs-keyword">return</span>; <span class="hljs-comment">// 用户取消</span><br>	&#125;<br><br>	m_workingDirectory = dir;<br>	<span class="hljs-function">emit <span class="hljs-title">workingDirectoryLocation</span><span class="hljs-params">(dir)</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+<p><code>signals</code> 里只声明，不写实现；<code>emit</code> 之后由 moc 生成的代码去通知已连接的槽。这里信号名用名词短语 <code>workingDirectoryLocation</code>，表示「工作目录位置这件事发生了」，参数是路径。</p>
+<p>接下来让右侧内容区接住这条路径。<code>ContentArea</code> 里放一个 <code>QLabel</code>，默认文案是「未选择工作目录」；再提供一个 <strong>public 槽</strong>，专门用来改这段文字。</p>
+<p>写成 <code>public</code>，是因为真正 <code>connect</code> 的地方在 <code>MainWindow</code>，不在 <code>ContentArea</code> 内部；若写成 <code>private slots</code>，只有 <code>ContentArea</code> 可以访问该槽函数，无法 <code>connect</code>。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-5a7a6967" role="button" aria-expanded="false" aria-controls="collapse-5a7a6967">
+        <div class="fold-arrow">▶</div>contentarea.h
+      </div>
+      <div class="fold-collapse collapse" id="collapse-5a7a6967">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> once</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QWidget&gt;</span></span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">QLabel</span>;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ContentArea</span> : <span class="hljs-keyword">public</span> QWidget &#123;<br>	Q_OBJECT<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">ContentArea</span><span class="hljs-params">(QWidget* parent = <span class="hljs-literal">nullptr</span>)</span></span>;<br><br><span class="hljs-keyword">public</span> slots:<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">setWorkingDirectoryLocation</span><span class="hljs-params">(<span class="hljs-type">const</span> QString&amp; path)</span></span>;<br><br><span class="hljs-keyword">private</span>:<br>	QLabel* m_pathLabel = <span class="hljs-literal">nullptr</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-0c30de67" role="button" aria-expanded="false" aria-controls="collapse-0c30de67">
+        <div class="fold-arrow">▶</div>contentarea.cpp
+      </div>
+      <div class="fold-collapse collapse" id="collapse-0c30de67">
+        <div class="fold-content">
+          <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;contentarea.h&quot;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QLabel&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QVBoxLayout&gt;</span></span><br><br>ContentArea::<span class="hljs-built_in">ContentArea</span>(QWidget* parent) : <span class="hljs-built_in">QWidget</span>(parent) &#123;<br>	<span class="hljs-built_in">setAttribute</span>(Qt::WA_StyledBackground, <span class="hljs-literal">true</span>);<br>	<span class="hljs-built_in">setStyleSheet</span>(<span class="hljs-string">&quot;background: #1e1e1e;&quot;</span>);<br><br>	m_pathLabel = <span class="hljs-keyword">new</span> <span class="hljs-built_in">QLabel</span>(<span class="hljs-string">&quot;未选择工作目录&quot;</span>, <span class="hljs-keyword">this</span>);<br>	m_pathLabel-&gt;<span class="hljs-built_in">setStyleSheet</span>(<span class="hljs-string">&quot;color: #cccccc; padding: 12px;&quot;</span>);<br>	m_pathLabel-&gt;<span class="hljs-built_in">setWordWrap</span>(<span class="hljs-literal">true</span>);  <span class="hljs-comment">// 文字过长时自动换行</span><br><br>	QVBoxLayout* layout = <span class="hljs-keyword">new</span> <span class="hljs-built_in">QVBoxLayout</span>(<span class="hljs-keyword">this</span>);<br>	layout-&gt;<span class="hljs-built_in">setContentsMargins</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>	layout-&gt;<span class="hljs-built_in">addWidget</span>(m_pathLabel);<br>	layout-&gt;<span class="hljs-built_in">addStretch</span>(<span class="hljs-number">1</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">ContentArea::setWorkingDirectoryLocation</span><span class="hljs-params">(<span class="hljs-type">const</span> QString&amp; path)</span> </span>&#123;<br>	m_pathLabel-&gt;<span class="hljs-built_in">setText</span>(path);     <span class="hljs-comment">// 改标签上显示的文字</span><br>	m_pathLabel-&gt;<span class="hljs-built_in">setToolTip</span>(path);  <span class="hljs-comment">// 鼠标悬停时弹出的提示</span><br>&#125;<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+<p>头文件里 <code>#include &lt;QWidget&gt;</code>，<code>QLabel</code> 只用指针就前向声明即可；完整 <code>#include &lt;QLabel&gt;</code> 放在 <code>.cpp</code>。</p>
+<p>槽名用 <code>setWorkingDirectoryLocation</code>：它是「把路径设进界面」的动作，不是「点击反应」，所以不叫 <code>on...</code>。</p>
+<p>构造里 <code>setWordWrap(true)</code>：路径太长时在标签宽度内自动换行，不往右无限伸出。</p>
+<p><code>setText</code> 改 <code>QLabel</code> 上显示的字；<code>setToolTip</code> 设鼠标悬停时弹出的提示。路径既画在标签上，悬停也能看全。</p>
+<p><code>SideBar</code> 自己 <code>connect</code> 按钮到 <code>onCreateDirClicked</code> 没问题：发送者和接收者是同一个对象。跨面板就不一样了——<code>SideBar</code> 不该 <code>#include</code> <code>ContentArea</code>，也不该直接改对方的 <code>QLabel</code>。谁同时拥有两边？<code>MainWindow</code>。</p>
+<p>所以最后一步必须在 <code>MainWindow</code> 构造函数里把两端接上：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">connect</span>(m_sideBar, &amp;SideBar::workingDirectoryLocation,<br>        m_contentArea, &amp;ContentArea::setWorkingDirectoryLocation);<br></code></pre></td></tr></table></figure>
+
+<p>四个参数还是老样子：谁发、发什么、谁收、收什么。只是这次发送者是 <code>m_sideBar</code>，接收者是 <code>m_contentArea</code>，中间人是 <code>MainWindow</code>。</p>
+<p>整条链路：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">QPushButton::clicked<br>  → SideBar::onCreateDirClicked（弹 QFileDialog，保存路径）<br>  → emit workingDirectoryLocation(dir)<br>  → ContentArea::setWorkingDirectoryLocation（改 QLabel）<br></code></pre></td></tr></table></figure>
+
+<p>选中目录后，右侧显示绝对路径。</p>
+<p><img src="/img/blog/Qt%E5%AD%A6%E4%B9%A0/17.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
