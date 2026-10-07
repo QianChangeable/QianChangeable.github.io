@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>Blog发布小工具</title>
+    <link href="/2026/10/06/blog/Blog%E5%8F%91%E5%B8%83%E5%B0%8F%E5%B7%A5%E5%85%B7/"/>
+    <url>/2026/10/06/blog/Blog%E5%8F%91%E5%B8%83%E5%B0%8F%E5%B7%A5%E5%85%B7/</url>
+    
+    <content type="html"><![CDATA[<p>仿照token-monitor做的小工具</p><span id="more"></span><p>效果如下。</p><p><img src="/img/blog/Blog%E5%8F%91%E5%B8%83%E5%B0%8F%E5%B7%A5%E5%85%B7/1.png" alt="1"></p><p>使用模型：deepseek v4.1 flash，大概烧了三个多亿token。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>token-monitor试用</title>
     <link href="/2026/10/03/blog/token-monitor%E8%AF%95%E7%94%A8/"/>
     <url>/2026/10/03/blog/token-monitor%E8%AF%95%E7%94%A8/</url>
